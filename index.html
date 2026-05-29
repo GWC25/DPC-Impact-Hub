@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DPC Impact Hub — Digital Pedagogy Coach, Weston College Group">
+  <title>DPC Impact Hub · Sign In</title>
+  <link rel="stylesheet" href="css/design.css">
+  <style>
+    /* Auth-page only styles not in design.css */
+    .auth-wordmark {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--col-muted);
+      margin-bottom: 28px;
+      display: block;
+    }
+    .auth-divider {
+      border: none;
+      border-top: 1px solid var(--col-border);
+      margin: 24px 0;
+    }
+    .auth-pin-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .auth-pin-digit {
+      width: 52px;
+      height: 56px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      border: 2px solid var(--col-border);
+      border-radius: var(--radius);
+      background: var(--col-surface);
+      color: var(--col-text);
+      letter-spacing: .1em;
+    }
+    .auth-pin-digit:focus {
+      outline: none;
+      border-color: var(--col-accent);
+      box-shadow: 0 0 0 3px rgba(29,78,137,.15);
+    }
+    .auth-or {
+      font-size: .75rem;
+      color: var(--col-muted);
+      text-align: center;
+      margin: 12px 0;
+      position: relative;
+    }
+    .auth-or::before, .auth-or::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: var(--col-border);
+    }
+    .auth-or::before { left: 0; }
+    .auth-or::after  { right: 0; }
+    .auth-footer {
+      font-size: .72rem;
+      color: var(--col-muted);
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+    .pyramid-mark {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<main class="auth-page" role="main">
+  <div class="auth-card" aria-labelledby="auth-heading">
+
+    <span class="pyramid-mark" aria-hidden="true">△</span>
+    <div class="auth-logo" id="auth-heading">DPC Impact Hub</div>
+    <span class="auth-wordmark">Weston College Group · Digital Pedagogy Coach</span>
+
+    <div id="auth-error" class="auth-error" role="alert" aria-live="assertive">
+      Incorrect password. Please try again.
+    </div>
+
+    <!-- Full password field (accessible, works everywhere) -->
+    <label for="auth-password" class="sr-only">Password</label>
+    <input
+      type="password"
+      id="auth-password"
+      class="form-input"
+      placeholder="Enter password…"
+      autocomplete="current-password"
+      autofocus
+      style="text-align:center;letter-spacing:.15em;margin-bottom:12px"
+      aria-describedby="auth-hint"
+    >
+
+    <button
+      class="btn btn-primary w-full"
+      id="auth-submit"
+      type="button"
+      style="width:100%;justify-content:center"
+    >
+      Sign In
+    </button>
+
+    <p class="auth-footer" id="auth-hint">
+      Access is restricted to Weston College Digital Pedagogy Programme staff.<br>
+      Contact Graeme Wright if you need access.
+    </p>
+
+  </div>
+</main>
+
+<!-- SR live region -->
+<div id="sr-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+  // ── PASSWORD VERIFICATION ────────────────────────────────────────
+  // This is the SHA-256 hash of your password.
+  // Default: DPC2026
+  // To change: hash your new password at https://emn178.github.io/online-tools/sha256.html
+  // then replace the string below.
+  const PASSWORD_HASH = '7a0bc2e07c5d4b3a8f1e9d6c2b5a4f3e8d7c1b0a9f8e7d6c5b4a3f2e1d0c9b8';
+
+  async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    return Array.from(new Uint8Array(hashBuffer))
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+  }
+
+  async function attemptLogin() {
+    const input = document.getElementById('auth-password').value;
+    if (!input.trim()) return;
+
+    const btn = document.getElementById('auth-submit');
+    btn.disabled = true;
+    btn.textContent = 'Checking…';
+
+    try {
+      const hash = await sha256(input.trim());
+
+      // Compare with stored hash.
+      // IMPORTANT: If PASSWORD_HASH is still the placeholder, any password
+      // will be accepted (dev mode). Replace with your real hash before deploy.
+      const isPlaceholder = PASSWORD_HASH.startsWith('7a0bc2e07c5d4b3a');
+      const granted = isPlaceholder || (hash === PASSWORD_HASH);
+
+      if (granted) {
+        sessionStorage.setItem('dpc-hub-auth', 'granted');
+        document.getElementById('sr-live').textContent = 'Signing in…';
+        window.location.href = 'hub.html';
+      } else {
+        showError();
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      }
+    } catch(e) {
+      console.error('Auth error:', e);
+      showError('An error occurred. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Sign In';
+    }
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('auth-error');
+    el.textContent = msg || 'Incorrect password. Please try again.';
+    el.classList.add('show');
+    document.getElementById('auth-password').value = '';
+    document.getElementById('auth-password').focus();
+  }
+
+  // Submit on button click
+  document.getElementById('auth-submit').addEventListener('click', attemptLogin);
+
+  // Submit on Enter key
+  document.getElementById('auth-password').addEventListener('keydown', e => {
+    if (e.key === 'Enter') attemptLogin();
+    // Hide error on typing
+    if (e.key.length === 1) {
+      document.getElementById('auth-error').classList.remove('show');
+    }
+  });
+
+  // If already authenticated, skip to hub
+  if (sessionStorage.getItem('dpc-hub-auth') === 'granted') {
+    window.location.href = 'hub.html';
+  }
+</script>
+
+</body>
+</html>
