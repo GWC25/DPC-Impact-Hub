@@ -1,0 +1,136 @@
+{
+  "version": "2.0",
+  "scale": {
+    "1": { "label": "Urgent", "description": "Fundamental blockage. Immediate intervention required." },
+    "2": { "label": "Challenged", "description": "Significant barriers. Intensive support needed." },
+    "3": { "label": "Developing", "description": "Wants to improve. Lacks direction or resource." },
+    "4": { "label": "On Track", "description": "Core confidence. Specific targeted gaps remain." },
+    "5": { "label": "Confident", "description": "Self-directed. Proactive. Can mentor others." }
+  },
+  "weights": {
+    "staffCapability": 1.5,
+    "hoaLeadership": 1.5,
+    "infrastructureDevices": 1.0,
+    "digitalSkillsAssessment": 1.0,
+    "curriculumIntegration": 1.0,
+    "learnerReadiness": 1.0,
+    "accessibilityHealth": 1.5,
+    "digitalLeadEngagement": 1.0
+  },
+  "dimensionOrder": [
+    "staffCapability",
+    "hoaLeadership",
+    "infrastructureDevices",
+    "digitalSkillsAssessment",
+    "curriculumIntegration",
+    "learnerReadiness",
+    "accessibilityHealth",
+    "digitalLeadEngagement"
+  ],
+  "dimensions": {
+    "staffCapability": {
+      "label": "Staff Digital Capability & Confidence",
+      "shortLabel": "Staff Capability",
+      "icon": "◎",
+      "subCriteria": ["Staff self-reported digital confidence","Observed competence in core tools (Teams, M365, VLE)","Willingness to try new digital approaches","Engagement with CPD opportunities","Peer-to-peer digital sharing and modelling"],
+      "levels": {
+        "1": "Staff openly resistant or unable to use basic digital tools. No CPD engagement. Low confidence is a barrier to delivery.",
+        "2": "Inconsistent confidence across team. Some staff managing; others significantly behind. CPD happening but not embedded.",
+        "3": "Most staff functional with core tools. Motivation to improve present but CPD not yet systematic or evidenced.",
+        "4": "Staff generally confident. Team engages with CPD. A few stretching into innovation. Gaps narrow and targeted.",
+        "5": "High-confidence team. Staff model good digital practice, share resources, and can support colleagues independently."
+      }
+    },
+    "hoaLeadership": {
+      "label": "HoA Leadership, Planning & Strategy",
+      "shortLabel": "HoA Leadership",
+      "icon": "◈",
+      "subCriteria": ["HoA digital vision for their area","Digital planning in curriculum and BP","HoA engagement with DPC coaching","Digital agenda in team meetings","Response to audit findings and AFIs"],
+      "levels": {
+        "1": "HoA disengaged or unaware of digital agenda. No planning. Digital not on team agenda.",
+        "2": "HoA willing but reactive. No proactive planning. Engagement with DPC is sporadic.",
+        "3": "HoA engaged with DPC. Plans being formed. Digital beginning to appear in BP and team conversations.",
+        "4": "HoA has a clear digital plan for their area. Actively drives it in meetings. Engages consistently with DPC.",
+        "5": "HoA is a digital champion. Leads from the front. Digital is embedded in strategic planning and team culture."
+      }
+    },
+    "infrastructureDevices": {
+      "label": "Infrastructure & Devices",
+      "shortLabel": "Infrastructure",
+      "icon": "⊡",
+      "subCriteria": ["Device availability and reliability for staff","Device availability and reliability for learners","Network / WiFi quality in teaching spaces","Access to specialist or industry software","IT support responsiveness"],
+      "levels": {
+        "1": "Critical infrastructure failures. Devices unreliable or absent. WiFi inadequate. Teaching regularly disrupted.",
+        "2": "Significant device or connectivity gaps. Some specialist software inaccessible. IT issues unresolved.",
+        "3": "Adequate baseline. Some gaps in device numbers or specialist software. WiFi mostly functional.",
+        "4": "Good provision. Most staff and learners have reliable access. Minor gaps being addressed.",
+        "5": "Excellent provision. Reliable devices, fast connectivity, specialist software fully accessible. IT responsive."
+      }
+    },
+    "digitalSkillsAssessment": {
+      "label": "Digital Skills Assessment & Tracking",
+      "shortLabel": "Skills Assessment",
+      "icon": "◉",
+      "subCriteria": ["Learner digital skills baseline on entry","Ongoing tracking of digital skills progress","Use of Century or equivalent tool","Digital skills mapped to framework (EDS/DigComp)","Evidence of progress used to adapt teaching"],
+      "levels": {
+        "1": "No assessment or tracking of learner digital skills. No framework in use.",
+        "2": "Some baseline activity but no ongoing tracking. Framework awareness low. Century not deployed.",
+        "3": "Baseline exists. Some tracking in place. Century or equivalent partially deployed. Framework referenced.",
+        "4": "Regular baseline and tracking. Century or equivalent actively used. Digital skills mapped to EDS.",
+        "5": "Systematic assessment and tracking. Full Century IA use. Progress data used to adapt delivery. Framework embedded."
+      }
+    },
+    "curriculumIntegration": {
+      "label": "Digital Curriculum Integration",
+      "shortLabel": "Curriculum Integration",
+      "icon": "◫",
+      "subCriteria": ["Digital skills explicitly in scheme of learning","Digital tools embedded in classroom delivery","Industry-relevant digital tools in use","Assessment and feedback using digital tools","Digital practice documented in business plan"],
+      "levels": {
+        "1": "Digital skills absent from curriculum planning. Delivery is primarily non-digital. No BP reference.",
+        "2": "Digital skills mentioned in plan but not embedded in delivery. Tools used inconsistently.",
+        "3": "Some digital tools in use. Referenced in BP. Industry tools beginning to appear. Not yet systematic.",
+        "4": "Digital embedded in most delivery. Industry tools actively used. BP references digital. Assessment mostly digital.",
+        "5": "Digital is fully integrated. Industry-standard tools explicit in curriculum. Assessment and feedback fully digital."
+      }
+    },
+    "learnerReadiness": {
+      "label": "Learner Readiness & Digital Confidence",
+      "shortLabel": "Learner Readiness",
+      "icon": "◷",
+      "subCriteria": ["Learner device access at home","Learner confidence with required digital tools","Digital poverty mitigation in place","Learner engagement with digital learning activities","Learner digital independence demonstrated"],
+      "levels": {
+        "1": "Significant digital poverty. Many learners unable to access digital learning outside college. Very low confidence.",
+        "2": "Digital poverty affects a minority significantly. Learner confidence low across team. Little mitigation.",
+        "3": "Some learners face access or confidence barriers. Area is aware. Mitigation partial.",
+        "4": "Most learners have access and basic confidence. Digital poverty addressed. Engagement generally good.",
+        "5": "Learners are digitally independent. Access issues minimal and mitigated. Strong digital engagement and confidence."
+      }
+    },
+    "accessibilityHealth": {
+      "label": "Digital Health (Accessibility & Inclusion)",
+      "shortLabel": "Digital Health",
+      "icon": "◬",
+      "subCriteria": ["Staff awareness of accessibility requirements","Accessible resource design in practice","AT tools promoted and available to learners","GDPR and file/folder permissions practice","Teams environment structured for inclusive access"],
+      "levels": {
+        "1": "No accessibility awareness. Resources not accessible. AT unknown. GDPR not observed in practice.",
+        "2": "Some awareness but not translated into practice. AT available but not promoted. GDPR patchy.",
+        "3": "Growing awareness. Some resources accessible. AT mentioned. GDPR understood but not consistently practised.",
+        "4": "Good practice observable. Most resources accessible. AT promoted. GDPR observed. Teams structured well.",
+        "5": "Accessibility by design is routine. Resources are fully accessible. AT embedded. GDPR excellent. Teams exemplary."
+      }
+    },
+    "digitalLeadEngagement": {
+      "label": "Digital Lead Engagement & Health Checks",
+      "shortLabel": "Digital Lead",
+      "icon": "◇",
+      "subCriteria": ["Digital Lead identified and confirmed","Digital Lead engaged with DPC programme","Digital Lead active in their area","Health Checks completed or planned","Digital Lead attending network events"],
+      "levels": {
+        "1": "No Digital Lead identified. No Health Checks. No engagement with DL programme.",
+        "2": "Digital Lead identified but not yet active. Health Checks not started. Programme engagement minimal.",
+        "3": "Digital Lead confirmed. Beginning to engage. Health Checks planned. Attending some network events.",
+        "4": "Digital Lead active and engaged. Health Checks underway. Area developing with DL support.",
+        "5": "Digital Lead is proactive and independent. Health Checks embedded. Mentoring others. Strong network presence."
+      }
+    }
+  }
+}
