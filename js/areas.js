@@ -938,78 +938,18 @@ DPC.Areas = {
     </div>`;
   },
 
-  // ── TAB 7: HEALTH CHECKS (FULL IMPLEMENTATION) ───────────────
-
-  HC_DIMS: [
-    {
-      key: 'accessibilityByDesign',
-      label: 'Accessibility by Design',
-      icon: '◬',
-      indicators: [
-        'Uses Accessibility Checker before sharing resources',
-        'Alt text present on images in presentations/documents',
-        'Colour contrast checked — not relying on colour alone',
-        'Captions/transcripts provided for video content',
-        'Accessible assignment briefs (clear headings, readable fonts)'
-      ]
-    },
-    {
-      key: 'promotingAccessiblePractice',
-      label: 'Promoting Accessible Practice',
-      icon: '◎',
-      indicators: [
-        'Proactively offers Immersive Reader to learners',
-        'Mentions AT tools (Read&Write, Live Captions) in lessons',
-        'Accessibility offered universally — not only to SEND learners',
-        'Learners encouraged to personalise their digital environment',
-        'AT embedded into routine lesson delivery'
-      ]
-    },
-    {
-      key: 'inclusiveKnowledgeAndPractice',
-      label: 'Inclusive Knowledge & Practice',
-      icon: '◈',
-      indicators: [
-        'Aware of SEND needs in their cohort and adjusts digitally',
-        'Applies UDL principles — multiple means of engagement',
-        'Provides digital alternatives or choices for tasks',
-        'Resources designed for equitable access (not one-size)',
-        'Learner voice used to adapt digital practice'
-      ]
-    },
-    {
-      key: 'filesAndFoldersPermissions',
-      label: 'Files, Folders & Permissions',
-      icon: '⊡',
-      indicators: [
-        'Consistent file naming conventions observed',
-        'SharePoint permissions set appropriately (not over-shared)',
-        'Learner-facing folders structured and clearly labelled',
-        'GDPR-compliant sharing — no personal data in open links',
-        'Version control evident — no multiple "final_v3" files'
-      ]
-    },
-    {
-      key: 'effectiveCommunication',
-      label: 'Effective Digital Communication',
-      icon: '◷',
-      indicators: [
-        'Teams channel/class space is organised and up to date',
-        'Posts and messages are clear, professional, and timely',
-        'Assignments/announcements use appropriate Teams features',
-        'Learners directed to digital resources proactively',
-        'Communication with parents/learners is accessible and inclusive'
-      ]
-    }
-  ],
+  // ── TAB 7: HEALTH CHECKS ─────────────────────────────────────────
+  // Schema-driven: 5 dimensions × 5 indicators × 5 levels
+  // Each indicator scored independently 1–5; dimension avg = mean of rated indicators
+  // Success criteria per indicator per level loaded from data/hc-schema.json
 
   HC_METHODS: [
-    { value: 'learning-walk',    label: 'Learning Walk' },
-    { value: 'meeting',          label: 'Meeting' },
-    { value: 'training-cpd',     label: 'Training / CPD' },
-    { value: 'self-reflection',  label: 'Self-Reflection' },
-    { value: 'observation',      label: 'Observation' },
-    { value: 'learner-voice',    label: 'Learner Voice' }
+    { value: 'learning-walk',   label: 'Learning Walk' },
+    { value: 'meeting',         label: 'Meeting' },
+    { value: 'training-cpd',    label: 'Training / CPD' },
+    { value: 'self-reflection', label: 'Self-Reflection' },
+    { value: 'observation',     label: 'Observation' },
+    { value: 'learner-voice',   label: 'Learner Voice' }
   ],
 
   HC_SCALE: [
@@ -1020,80 +960,102 @@ DPC.Areas = {
     { value: 5, label: 'Confident',  color: '#0284c7' }
   ],
 
+  // ── HELPERS ──────────────────────────────────────────────────────
+
+  _hcColor: function(score) {
+    const s = DPC.Areas.HC_SCALE.find(s => s.value === Math.round(score));
+    return s?.color || 'var(--col-muted)';
+  },
+
+  // Read per-indicator scores for a dimension from a record
+  // record.scores[dimKey] is now { indicators: {0:n,…}, avg: n } or legacy integer
+  _getIndicatorScores: function(record, dimKey) {
+    const raw = record?.scores?.[dimKey];
+    if (raw === null || raw === undefined) return { indicators: {}, avg: null };
+    if (typeof raw === 'number') return { indicators: {}, avg: raw, _legacy: raw };
+    return { indicators: raw.indicators || {}, avg: raw.avg };
+  },
+
+  _calcIndicatorAvg: function(indicators) {
+    const vals = Object.values(indicators).filter(v => v !== null && v !== undefined);
+    if (!vals.length) return null;
+    return Math.round((vals.reduce((a,b)=>a+b,0) / vals.length) * 10) / 10;
+  },
+
+  _calcHCAggregate: function(records) {
+    if (!records || !records.length) return null;
+    const schema = DPC.hcSchema;
+    const dimKeys = schema ? Object.keys(schema.dimensions) : [];
+    const allAvgs = records.flatMap(r =>
+      dimKeys.map(k => DPC.Areas._getIndicatorScores(r, k).avg).filter(v => v !== null)
+    );
+    if (!allAvgs.length) return null;
+    return Math.round((allAvgs.reduce((a,b)=>a+b,0) / allAvgs.length) * 10) / 10;
+  },
+
+  // ── MAIN RENDER ───────────────────────────────────────────────────
+
   renderHealthChecks: function(area) {
-    const hc = area.healthChecks || { records: [], aggregateScore: null };
+    const schema  = DPC.hcSchema;
+    const hc      = area.healthChecks || { records: [], aggregateScore: null };
     const records = hc.records || [];
     const aggregate = this._calcHCAggregate(records);
 
-    // Aggregate bar
+    if (!schema) {
+      return `<div class="page-inner"><div class="empty-state">
+        <div class="empty-state__title">Health Check schema loading…</div>
+        <div class="empty-state__body">Try switching away and back to this tab.</div>
+      </div></div>`;
+    }
+
+    const dims = Object.entries(schema.dimensions);
+
+    // Aggregate summary
     const aggHtml = aggregate !== null
-      ? `<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-          ${this.HC_DIMS.map(d => {
-            const scores = records.map(r => r.scores?.[d.key]).filter(v => v !== null && v !== undefined);
-            const avg = scores.length ? (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1) : null;
-            const color = avg ? this._hcColor(Math.round(avg)) : 'var(--col-border)';
-            return `<div style="display:flex;flex-direction:column;align-items:center;gap:3px;min-width:60px">
-              <div style="font-size:1.1rem" aria-hidden="true">${d.icon}</div>
-              <div style="font-size:1.4rem;font-weight:700;font-family:var(--font-mono);color:${color}">${avg || '—'}</div>
-              <div style="font-size:.62rem;color:var(--col-muted);text-align:center;line-height:1.2">${d.label}</div>
+      ? `<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          ${dims.map(([dk, dim]) => {
+            const avgs = records.map(r => DPC.Areas._getIndicatorScores(r, dk).avg).filter(v=>v!==null);
+            const avg  = avgs.length ? (avgs.reduce((a,b)=>a+b,0)/avgs.length) : null;
+            const color = avg ? DPC.Areas._hcColor(avg) : 'var(--col-border)';
+            return `<div style="display:flex;flex-direction:column;align-items:center;gap:3px;min-width:64px">
+              <div style="font-size:1.1rem" aria-hidden="true">${dim.icon}</div>
+              <div style="font-size:1.4rem;font-weight:700;font-family:var(--font-mono);color:${color}">${avg?avg.toFixed(1):'—'}</div>
+              <div style="font-size:.6rem;color:var(--col-muted);text-align:center;line-height:1.2">${dim.label}</div>
             </div>`;
           }).join('')}
           <div style="margin-left:auto;text-align:right">
-            <div style="font-size:1.8rem;font-weight:700;font-family:var(--font-mono);color:${this._hcColor(Math.round(aggregate))}">${aggregate.toFixed(1)}</div>
-            <div style="font-size:.72rem;color:var(--col-muted)">Overall avg · ${records.length} record${records.length!==1?'s':''}</div>
+            <div style="font-size:1.8rem;font-weight:700;font-family:var(--font-mono);color:${DPC.Areas._hcColor(aggregate)}">${aggregate.toFixed(1)}</div>
+            <div style="font-size:.72rem;color:var(--col-muted)">Overall · ${records.length} record${records.length!==1?'s':''}</div>
           </div>
         </div>`
       : `<div style="color:var(--col-muted);font-size:.875rem">No records yet — add the first health check below.</div>`;
 
-    // Records list
+    // Open action points across all records
+    const allActions = records.flatMap(r => (r.actionPoints||[]).map(ap=>({...ap,recordId:r.id,staffName:r.staffName,date:r.date})));
+    const openActions = allActions.filter(ap=>ap.status!=='completed');
+
     const recordsHtml = records.length === 0
       ? `<div class="empty-state" style="padding:32px 0">
            <div class="empty-state__icon">◬</div>
            <div class="empty-state__title">No health checks recorded</div>
-           <div class="empty-state__body">Click "Add Health Check" to record the first assessment for this area.</div>
+           <div class="empty-state__body">Click "+ Add Health Check" to record the first assessment.</div>
          </div>`
-      : [...records].reverse().map(r => this._renderHCRecord(r, area.code)).join('');
-
-    // Action points across all records
-    const allActions = records.flatMap(r => (r.actionPoints || []).map(ap => ({...ap, recordId: r.id, staffName: r.staffName, date: r.date})));
-    const openActions = allActions.filter(ap => ap.status !== 'completed');
+      : [...records].reverse().map(r => this._renderHCRecord(r, area.code, schema)).join('');
 
     return `<div class="page-inner">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px">
         <div>
           <h3 class="section-heading" style="margin-bottom:0">Health Checks</h3>
-          <p style="font-size:.82rem;color:var(--col-muted);margin-top:2px">5-dimension digital practice assessment · Multiple methods</p>
+          <p style="font-size:.82rem;color:var(--col-muted);margin-top:2px">5 dimensions · 5 indicators each · Per-indicator scoring · Success criteria for every level</p>
         </div>
         <button class="btn btn-primary" onclick="DPC.Areas.showAddHCModal('${area.code}')" type="button">+ Add Health Check</button>
       </div>
 
-      <!-- Aggregate scores -->
       <div class="card" style="margin-bottom:20px">
         <div class="card-header"><span class="card-title">Aggregate Scores</span></div>
         <div class="card-body">${aggHtml}</div>
       </div>
 
-      <!-- Dimension reference -->
-      <details style="margin-bottom:20px">
-        <summary style="cursor:pointer;font-size:.82rem;font-weight:600;color:var(--col-muted);padding:8px 0;user-select:none">
-          ▸ Dimension Indicators Reference
-        </summary>
-        <div style="margin-top:10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-          ${this.HC_DIMS.map(d => `
-            <div class="card" style="padding:12px 14px">
-              <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
-                <span style="font-size:1rem" aria-hidden="true">${d.icon}</span>
-                <strong style="font-size:.82rem;color:var(--col-text-2)">${d.label}</strong>
-              </div>
-              <ul style="list-style:none;padding:0;margin:0">
-                ${d.indicators.map(ind => `<li style="font-size:.75rem;color:var(--col-muted);padding:2px 0;border-bottom:1px solid var(--col-border);display:flex;gap:6px;align-items:flex-start">
-                  <span style="color:var(--col-accent);flex-shrink:0;margin-top:1px">·</span>${ind}</li>`).join('')}
-              </ul>
-            </div>`).join('')}
-        </div>
-      </details>
-
-      <!-- Open action points -->
       ${openActions.length ? `
       <div class="card" style="margin-bottom:20px">
         <div class="card-header">
@@ -1101,49 +1063,48 @@ DPC.Areas = {
           <span class="badge badge-ip">${openActions.length} open</span>
         </div>
         <div class="card-body" style="padding:0">
-          <div class="table-wrap" style="border:none">
-            <table class="table-base" aria-label="Open health check action points">
-              <thead><tr><th>Staff</th><th>Date</th><th>Action</th><th>Deadline</th><th>Owner</th><th>Status</th></tr></thead>
-              <tbody>
-                ${openActions.map(ap => `<tr>
-                  <td style="font-size:.8rem">${DPC.escHtml(ap.staffName||'—')}</td>
-                  <td style="font-size:.75rem;font-family:var(--font-mono);white-space:nowrap">${DPC.escHtml(ap.date||'—')}</td>
-                  <td style="font-size:.82rem">${DPC.escHtml(ap.plannedAction||'—')}</td>
-                  <td style="font-size:.75rem;white-space:nowrap">${DPC.escHtml(ap.deadline||'—')}</td>
-                  <td style="font-size:.78rem">${DPC.escHtml(ap.ownership||'—')}</td>
-                  <td>
-                    <select aria-label="Action status" style="font-size:.72rem;padding:2px 6px;border:1px solid var(--col-border);border-radius:var(--radius);background:var(--col-surface);color:var(--col-text)"
-                      onchange="DPC.Areas.updateHCActionStatus('${area.code}','${ap.recordId}','${ap.id}',this.value)">
-                      <option value="not-started"${ap.status==='not-started'?' selected':''}>Not Started</option>
-                      <option value="in-progress"${ap.status==='in-progress'?' selected':''}>In Progress</option>
-                      <option value="completed"${ap.status==='completed'?' selected':''}>Completed</option>
-                    </select>
-                  </td>
-                </tr>`).join('')}
-              </tbody>
-            </table>
-          </div>
+          <table class="table-base" aria-label="Open health check action points">
+            <thead><tr><th>Staff</th><th>Action</th><th>Deadline</th><th>Owner</th><th>Status</th></tr></thead>
+            <tbody>
+              ${openActions.map(ap=>`<tr>
+                <td style="font-size:.78rem">${DPC.escHtml(ap.staffName||'—')}</td>
+                <td style="font-size:.82rem">${DPC.escHtml(ap.plannedAction||'—')}</td>
+                <td style="font-size:.75rem;white-space:nowrap;font-family:var(--font-mono)">${ap.deadline||'—'}</td>
+                <td style="font-size:.78rem">${DPC.escHtml(ap.ownership||'—')}</td>
+                <td><select aria-label="Status" style="font-size:.7rem;padding:2px 4px;border:1px solid var(--col-border);border-radius:var(--radius);background:var(--col-surface);color:var(--col-text)"
+                  onchange="DPC.Areas.updateHCActionStatus('${area.code}','${ap.recordId}','${ap.id}',this.value)">
+                  <option value="not-started"${ap.status==='not-started'?' selected':''}>Not Started</option>
+                  <option value="in-progress"${ap.status==='in-progress'?' selected':''}>In Progress</option>
+                  <option value="completed"${ap.status==='completed'?' selected':''}>Completed</option>
+                </select></td>
+              </tr>`).join('')}
+            </tbody>
+          </table>
         </div>
       </div>` : ''}
 
-      <!-- Records -->
       <h4 style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--col-muted);margin-bottom:10px">
         Assessment Records (${records.length})
       </h4>
-      <div id="hc-records-${area.code}">
-        ${recordsHtml}
-      </div>
+      <div id="hc-records-${area.code}">${recordsHtml}</div>
     </div>`;
   },
 
-  _renderHCRecord: function(r, areaCode) {
-    const method = this.HC_METHODS.find(m => m.value === r.assessmentMethod) || { label: r.assessmentMethod || '—' };
-    const scoreHtml = this.HC_DIMS.map(d => {
-      const v = r.scores?.[d.key];
-      const color = v ? this._hcColor(v) : 'var(--col-border)';
-      const label = v ? this.HC_SCALE.find(s=>s.value===v)?.label || v : '—';
-      return `<span style="display:inline-flex;align-items:center;gap:4px;font-size:.72rem;padding:2px 7px;border-radius:999px;background:${v?color+'22':'var(--col-surface-2)'};color:${v?color:'var(--col-muted)'};border:1px solid ${v?color+'44':'var(--col-border)'}" title="${d.label}: ${label}">
-        <span aria-hidden="true">${d.icon}</span> ${v||'—'}
+  // ── RECORD CARD ──────────────────────────────────────────────────
+
+  _renderHCRecord: function(r, areaCode, schema) {
+    const method = this.HC_METHODS.find(m=>m.value===r.assessmentMethod)||{label:r.assessmentMethod||'—'};
+    const dims = Object.entries(schema.dimensions);
+
+    // Compact dimension score pills
+    const dimPills = dims.map(([dk,dim]) => {
+      const d = DPC.Areas._getIndicatorScores(r, dk);
+      const avg = d.avg;
+      const color = avg ? DPC.Areas._hcColor(avg) : 'var(--col-border)';
+      return `<span style="display:inline-flex;align-items:center;gap:3px;font-size:.7rem;padding:2px 7px;border-radius:999px;
+        background:${avg?color+'22':'var(--col-surface-2)'};color:${avg?color:'var(--col-muted)'};
+        border:1px solid ${avg?color+'44':'var(--col-border)'}" title="${dim.label}: ${avg?avg.toFixed(1)+' avg':'not rated'}">
+        <span aria-hidden="true">${dim.icon}</span> ${avg?avg.toFixed(1):'—'}
       </span>`;
     }).join('');
 
@@ -1153,79 +1114,105 @@ DPC.Areas = {
       <button class="intervention-card-header" type="button"
         onclick="DPC.Areas.toggleHCRecord('${r.id}')"
         aria-expanded="false" aria-controls="hc-body-${r.id}">
-        <div style="display:flex;flex-direction:column;gap:4px;flex:1;text-align:left">
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-            <strong style="font-size:.875rem">${DPC.escHtml(r.staffName || 'Unnamed')}</strong>
+        <div style="flex:1;text-align:left">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+            <strong style="font-size:.875rem">${DPC.escHtml(r.staffName||'Unnamed')}</strong>
             <span class="badge badge-ns" style="font-size:.68rem">${DPC.escHtml(method.label)}</span>
-            <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--col-muted)">${DPC.escHtml(r.date||'—')}</span>
+            <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--col-muted)">${r.date||'—'}</span>
           </div>
-          <div style="display:flex;gap:4px;flex-wrap:wrap">${scoreHtml}</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap">${dimPills}</div>
         </div>
         <div style="display:flex;gap:6px;align-items:center;flex-shrink:0">
-          ${aps.length ? `<span class="badge badge-ip" style="font-size:.65rem">${aps.filter(a=>a.status!=='completed').length}/${aps.length} actions</span>` : ''}
+          ${aps.length?`<span class="badge badge-ip" style="font-size:.65rem">${aps.filter(a=>a.status!=='completed').length}/${aps.length}</span>`:''}
           <button class="btn btn-ghost btn-sm" type="button"
             onclick="event.stopPropagation();DPC.Areas.editHCRecord('${areaCode}','${r.id}')">✎</button>
           <button class="btn btn-ghost btn-sm" type="button"
             onclick="event.stopPropagation();DPC.Areas.deleteHCRecord('${areaCode}','${r.id}')"
-            aria-label="Delete this health check record">✕</button>
+            aria-label="Delete">✕</button>
           <span style="color:var(--col-muted);font-size:.72rem" aria-hidden="true">▾</span>
         </div>
       </button>
       <div class="intervention-card-body" id="hc-body-${r.id}">
-        <!-- Scores grid -->
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:14px">
-          ${this.HC_DIMS.map(d => {
-            const v = r.scores?.[d.key];
-            const color = v ? this._hcColor(v) : 'var(--col-border)';
-            const lbl = v ? (this.HC_SCALE.find(s=>s.value===v)?.label||v) : 'Not rated';
-            return `<div style="padding:10px 12px;border-radius:var(--radius);border:1px solid ${v?color+'44':'var(--col-border)'};background:${v?color+'11':'var(--col-surface)'}">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
-                <span aria-hidden="true">${d.icon}</span>
-                <span style="font-size:.75rem;font-weight:600;color:var(--col-text-2)">${d.label}</span>
-              </div>
-              <div style="font-size:1.2rem;font-weight:700;font-family:var(--font-mono);color:${v?color:'var(--col-muted)'}">${v||'—'} <span style="font-size:.72rem;font-family:var(--font-body);font-weight:400">${lbl}</span></div>
-            </div>`;
-          }).join('')}
-        </div>
-        ${r.notes ? `<div style="margin-bottom:14px">
+        <!-- Per-dimension indicator breakdown -->
+        ${dims.map(([dk,dim]) => {
+          const d = DPC.Areas._getIndicatorScores(r, dk);
+          const avg = d.avg;
+          const avgColor = avg ? DPC.Areas._hcColor(avg) : 'var(--col-muted)';
+          return `<div style="margin-bottom:16px;border:1px solid ${avg?avgColor+'44':'var(--col-border)'};border-left:3px solid ${avg?avgColor:'var(--col-border)'};border-radius:var(--radius);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--col-surface-2);border-bottom:1px solid var(--col-border)">
+              <span aria-hidden="true">${dim.icon}</span>
+              <strong style="font-size:.82rem;flex:1">${dim.label}</strong>
+              ${avg!==null?`<span style="font-weight:700;font-size:.82rem;color:${avgColor}">${avg.toFixed(1)} avg</span>`:'<span style="font-size:.75rem;color:var(--col-muted)">Not rated</span>'}
+            </div>
+            <table style="width:100%;border-collapse:collapse;font-size:.75rem">
+              <thead>
+                <tr style="background:var(--col-surface-2)">
+                  <th style="padding:5px 10px;text-align:left;font-size:.66rem;font-weight:700;text-transform:uppercase;color:var(--col-muted);border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border)">Indicator</th>
+                  ${DPC.Areas.HC_SCALE.map(s=>`<th style="text-align:center;padding:5px 4px;font-size:.64rem;font-weight:700;color:${s.color};border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);min-width:60px">${s.value} ${s.label}</th>`).join('')}
+                  <th style="text-align:center;padding:5px 4px;font-size:.64rem;font-weight:700;color:var(--col-muted);border-bottom:1px solid var(--col-border)">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${(dim.indicators||[]).map((ind,idx) => {
+                  const score = d.indicators[idx] ?? null;
+                  const scoreColor = score ? DPC.Areas._hcColor(score) : null;
+                  return `<tr style="background:${score?DPC.Areas._hcColor(score)+'08':'var(--col-surface)'}">
+                    <td style="padding:7px 10px;border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);vertical-align:top">
+                      <div style="font-size:.74rem;font-weight:500;color:var(--col-text-2)">${ind.label}</div>
+                      <div style="font-size:.65rem;color:var(--col-muted);margin-top:2px;font-style:italic">${ind.observability}</div>
+                    </td>
+                    ${DPC.Areas.HC_SCALE.map(s=>{
+                      const isSel = score === s.value;
+                      const crit  = ind.levels?.[s.value] || '';
+                      return `<td style="padding:6px 6px;border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);text-align:center;vertical-align:top;background:${isSel?s.color+'22':''}">
+                        ${isSel?`<div style="font-size:.7rem;font-weight:700;color:${s.color};margin-bottom:3px">✓ ${s.value}</div>`:''}
+                        <div style="font-size:.64rem;color:${isSel?'var(--col-text)':'var(--col-muted)'};line-height:1.4;text-align:left">${crit}</div>
+                      </td>`;
+                    }).join('')}
+                    <td style="padding:6px;border-bottom:1px solid var(--col-border);text-align:center;vertical-align:middle">
+                      ${score?`<span style="font-size:.9rem;font-weight:700;color:${scoreColor};font-family:var(--font-mono)">${score}</span>`:`<span style="color:var(--col-muted);font-size:.75rem">—</span>`}
+                    </td>
+                  </tr>`;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>`;
+        }).join('')}
+
+        ${r.notes?`<div style="margin-bottom:14px">
           <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--col-muted);margin-bottom:4px">Observations</div>
-          <div style="font-size:.875rem;color:var(--col-text);white-space:pre-wrap;line-height:1.6">${DPC.escHtml(r.notes)}</div>
-        </div>` : ''}
+          <div style="font-size:.875rem;white-space:pre-wrap;line-height:1.6">${DPC.escHtml(r.notes)}</div>
+        </div>`:''}
+
         <!-- Action points -->
-        <div style="margin-top:10px">
+        <div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--col-muted)">Action Points</div>
             <button class="btn btn-ghost btn-sm" type="button"
               onclick="DPC.Areas.showAddHCActionModal('${areaCode}','${r.id}')">+ Add Action</button>
           </div>
-          ${aps.length === 0
-            ? `<div style="font-size:.8rem;color:var(--col-muted)">No action points recorded.</div>`
-            : `<div class="table-wrap" style="border:1px solid var(--col-border);border-radius:var(--radius)">
-                <table class="table-base" style="font-size:.78rem">
-                  <thead><tr><th>Action</th><th>Details</th><th>Deadline</th><th>Owner</th><th>Impact</th><th>Status</th><th></th></tr></thead>
-                  <tbody>
-                    ${aps.map(ap => `<tr>
-                      <td style="font-weight:500">${DPC.escHtml(ap.plannedAction||'—')}</td>
-                      <td style="color:var(--col-muted);max-width:200px">${DPC.escHtml((ap.details||'').slice(0,80))}</td>
-                      <td style="white-space:nowrap;font-family:var(--font-mono);font-size:.72rem">${DPC.escHtml(ap.deadline||'—')}</td>
-                      <td>${DPC.escHtml(ap.ownership||'—')}</td>
-                      <td style="color:var(--col-muted)">${DPC.escHtml((ap.expectedImpact||'').slice(0,50))}</td>
-                      <td>
-                        <select aria-label="Status" style="font-size:.7rem;padding:2px 4px;border:1px solid var(--col-border);border-radius:var(--radius);background:var(--col-surface);color:var(--col-text)"
-                          onchange="DPC.Areas.updateHCActionStatus('${areaCode}','${r.id}','${ap.id}',this.value)">
-                          <option value="not-started"${ap.status==='not-started'?' selected':''}>Not Started</option>
-                          <option value="in-progress"${ap.status==='in-progress'?' selected':''}>In Progress</option>
-                          <option value="completed"${ap.status==='completed'?' selected':''}>Completed</option>
-                        </select>
-                      </td>
-                      <td><button class="btn btn-ghost btn-sm" type="button"
-                        onclick="DPC.Areas.deleteHCAction('${areaCode}','${r.id}','${ap.id}')"
-                        aria-label="Delete action">✕</button></td>
-                    </tr>`).join('')}
-                  </tbody>
-                </table>
-              </div>`
-          }
+          ${aps.length===0
+            ?`<div style="font-size:.8rem;color:var(--col-muted)">No action points yet.</div>`
+            :`<table class="table-base" style="font-size:.78rem">
+              <thead><tr><th>Action</th><th>Details</th><th>Deadline</th><th>Owner</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+              ${aps.map(ap=>`<tr>
+                <td style="font-weight:500">${DPC.escHtml(ap.plannedAction||'—')}</td>
+                <td style="color:var(--col-muted)">${DPC.escHtml((ap.details||'').slice(0,80))}</td>
+                <td style="white-space:nowrap;font-family:var(--font-mono);font-size:.72rem">${ap.deadline||'—'}</td>
+                <td>${DPC.escHtml(ap.ownership||'—')}</td>
+                <td><select aria-label="Status" style="font-size:.7rem;padding:2px 4px;border:1px solid var(--col-border);border-radius:var(--radius);background:var(--col-surface);color:var(--col-text)"
+                  onchange="DPC.Areas.updateHCActionStatus('${areaCode}','${r.id}','${ap.id}',this.value)">
+                  <option value="not-started"${ap.status==='not-started'?' selected':''}>Not Started</option>
+                  <option value="in-progress"${ap.status==='in-progress'?' selected':''}>In Progress</option>
+                  <option value="completed"${ap.status==='completed'?' selected':''}>Completed</option>
+                </select></td>
+                <td><button class="btn btn-ghost btn-sm" type="button"
+                  onclick="DPC.Areas.deleteHCAction('${areaCode}','${r.id}','${ap.id}')"
+                  aria-label="Delete action">✕</button></td>
+              </tr>`).join('')}
+              </tbody>
+            </table>`}
         </div>
       </div>
     </div>`;
@@ -1239,81 +1226,124 @@ DPC.Areas = {
     if (btn) btn.setAttribute('aria-expanded', open);
   },
 
-  // ── HEALTH CHECK MODAL (ADD / EDIT) ───────────────────────────
+  // ── ADD / EDIT HEALTH CHECK MODAL ────────────────────────────────
+  // Modal uses per-indicator scoring grids with success criteria expandable per level
 
   showAddHCModal: function(areaCode, existingId) {
-    const area = DPC.getArea(areaCode);
-    if (!area) return;
+    const area     = DPC.getArea(areaCode);
+    const schema   = DPC.hcSchema;
+    if (!area || !schema) return;
     const existing = existingId ? (area.healthChecks?.records||[]).find(r=>r.id===existingId) : null;
-    const title = existing ? `Edit Health Check — ${existing.staffName||''}` : `Add Health Check — ${area.name}`;
+    const title    = existing ? `Edit Health Check — ${existing.staffName||''}` : `Add Health Check — ${area.name}`;
 
-    const scaleRow = this.HC_SCALE.map(s =>
-      `<span style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;font-size:.7rem;min-width:48px">
-        <span style="font-weight:700;color:${s.color}">${s.value}</span>
-        <span style="color:var(--col-muted)">${s.label}</span>
-      </span>`).join('');
+    const dims = Object.entries(schema.dimensions);
 
-    const dimFields = this.HC_DIMS.map(d => {
-      const current = existing?.scores?.[d.key] || null;
-      return `<div style="padding:12px;border:1px solid var(--col-border);border-radius:var(--radius);margin-bottom:8px">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span aria-hidden="true" style="font-size:1rem">${d.icon}</span>
-          <label style="font-weight:600;font-size:.85rem;color:var(--col-text)">${d.label}</label>
+    const dimFields = dims.map(([dk, dim]) => {
+      const existingDimData = existing ? DPC.Areas._getIndicatorScores(existing, dk) : { indicators: {} };
+
+      return `<div style="border:1px solid var(--col-border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:14px">
+        <!-- Dimension header -->
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--col-surface-2);border-bottom:1px solid var(--col-border)">
+          <span style="font-size:1rem" aria-hidden="true">${dim.icon}</span>
+          <strong style="font-size:.85rem">${dim.label}</strong>
+          <span style="font-size:.7rem;color:var(--col-muted);margin-left:4px" id="hc-dim-avg-${dk}">avg: —</span>
         </div>
-        <div style="font-size:.72rem;color:var(--col-muted);margin-bottom:10px">
-          ${d.indicators.slice(0,3).map(i=>`· ${i}`).join('<br>')}${d.indicators.length>3?' …':''}
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap" role="radiogroup" aria-label="Rating for ${d.label}">
-          <button type="button" class="btn btn-ghost btn-sm hc-clear-btn"
-            data-dim="${d.key}" style="font-size:.7rem;color:var(--col-muted)"
-            onclick="DPC.Areas._hcSelectScore(this,'${d.key}',null)">Clear</button>
-          ${this.HC_SCALE.map(s => `
-          <button type="button"
-            class="btn btn-sm hc-score-btn${current===s.value?' hc-selected':''}"
-            data-dim="${d.key}" data-val="${s.value}"
-            style="border:2px solid ${current===s.value?s.color:'var(--col-border)'};background:${current===s.value?s.color+'22':'var(--col-surface)'};color:${current===s.value?s.color:'var(--col-text-2)'};min-width:52px"
-            onclick="DPC.Areas._hcSelectScore(this,'${d.key}',${s.value})"
-            aria-pressed="${current===s.value}">
-            <span style="font-weight:700">${s.value}</span>
-            <span style="font-size:.62rem;display:block;line-height:1">${s.label}</span>
-          </button>`).join('')}
-        </div>
+        <div style="font-size:.7rem;color:var(--col-muted);padding:6px 14px;border-bottom:1px solid var(--col-border);background:var(--col-surface-2);font-style:italic">${dim.observability}</div>
+
+        <!-- Indicator rows -->
+        <table style="width:100%;border-collapse:collapse;font-size:.75rem">
+          <thead>
+            <tr style="background:var(--col-surface-2)">
+              <th style="padding:6px 12px;text-align:left;font-size:.64rem;font-weight:700;text-transform:uppercase;color:var(--col-muted);border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);min-width:160px">Indicator</th>
+              ${DPC.Areas.HC_SCALE.map(s=>`<th style="text-align:center;padding:6px 4px;font-size:.64rem;font-weight:700;color:${s.color};border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);min-width:68px">${s.value}<br>${s.label}</th>`).join('')}
+              <th style="width:44px;padding:6px 4px;border-bottom:1px solid var(--col-border)"></th>
+            </tr>
+          </thead>
+          <tbody>
+            ${(dim.indicators||[]).map((ind, idx) => {
+              const currentScore = existingDimData.indicators[idx] ?? null;
+              return `<tr id="hc-row-${dk}-${idx}">
+                <td style="padding:8px 12px;border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);vertical-align:top">
+                  <div style="font-size:.74rem;font-weight:600;color:var(--col-text-2)">${ind.label}</div>
+                  <div style="font-size:.64rem;color:var(--col-muted);margin-top:2px;font-style:italic">${ind.observability}</div>
+                  <button type="button" style="font-size:.64rem;color:var(--col-accent);background:none;border:none;padding:2px 0;cursor:pointer;text-decoration:underline;margin-top:4px"
+                    onclick="DPC.Areas._toggleHCCriteria('${dk}','${idx}')"
+                    id="hc-crit-btn-${dk}-${idx}">Show success criteria ▾</button>
+                  <div id="hc-criteria-${dk}-${idx}" style="display:none;margin-top:6px">
+                    ${DPC.Areas.HC_SCALE.map(s=>{
+                      const crit = ind.levels?.[s.value]||'';
+                      return crit?`<div style="margin-bottom:5px;padding:5px 8px;border-radius:var(--radius);background:${s.color}11;border-left:3px solid ${s.color}">
+                        <div style="font-size:.65rem;font-weight:700;color:${s.color}">${s.value} · ${s.label}</div>
+                        <div style="font-size:.68rem;color:var(--col-text-2);margin-top:2px;line-height:1.45">${crit}</div>
+                      </div>`:'';
+                    }).join('')}
+                  </div>
+                </td>
+                ${DPC.Areas.HC_SCALE.map(s=>{
+                  const isSel = currentScore === s.value;
+                  return `<td style="padding:6px 4px;border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);text-align:center;vertical-align:middle;background:${isSel?s.color+'18':''}">
+                    <button type="button"
+                      class="hc-ind-btn${isSel?' hc-ind-selected':''}"
+                      data-dim="${dk}" data-ind="${idx}" data-val="${s.value}"
+                      onclick="DPC.Areas._hcIndScore(this,'${dk}',${idx},${s.value})"
+                      aria-pressed="${isSel}"
+                      aria-label="${ind.label}: ${s.value} — ${s.label}"
+                      title="${ind.levels?.[s.value]||s.label}"
+                      style="width:44px;height:32px;border-radius:var(--radius);cursor:pointer;
+                        border:2px solid ${isSel?s.color:'var(--col-border)'};
+                        background:${isSel?s.color:'var(--col-surface)'};
+                        color:${isSel?'#fff':'var(--col-text-2)'};
+                        font-size:.75rem;font-weight:${isSel?'700':'400'};
+                        transition:all .12s;display:inline-flex;align-items:center;justify-content:center;
+                      ">${isSel?'✓':s.value}</button>
+                  </td>`;
+                }).join('')}
+                <td style="padding:4px;border-bottom:1px solid var(--col-border);text-align:center;vertical-align:middle">
+                  <button type="button" style="font-size:.68rem;color:var(--col-muted);background:none;border:none;cursor:pointer;padding:2px 4px"
+                    onclick="DPC.Areas._hcIndScore(null,'${dk}',${idx},null)"
+                    aria-label="Clear score for ${ind.label}">×</button>
+                </td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
       </div>`;
     }).join('');
 
     const body = `
       <div class="form-row">
-        <div class="form-field">
-          <label class="form-label" for="hc-staff">Staff Name</label>
-          <input class="form-input" id="hc-staff" type="text" placeholder="e.g. Tracey White" value="${DPC.escHtml(existing?.staffName||'')}">
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="hc-date">Date</label>
-          <input class="form-input" id="hc-date" type="date" value="${existing?.date||new Date().toISOString().split('T')[0]}">
-        </div>
+        <div class="form-field"><label class="form-label" for="hc-staff">Staff Name</label>
+          <input class="form-input" id="hc-staff" type="text" placeholder="e.g. Tracey White" value="${DPC.escHtml(existing?.staffName||'')}"></div>
+        <div class="form-field"><label class="form-label" for="hc-date">Date</label>
+          <input class="form-input" id="hc-date" type="date" value="${existing?.date||new Date().toISOString().split('T')[0]}"></div>
       </div>
-      <div class="form-field">
-        <label class="form-label" for="hc-method">Assessment Method</label>
+      <div class="form-field"><label class="form-label" for="hc-method">Assessment Method</label>
         <select class="form-select" id="hc-method">
-          ${this.HC_METHODS.map(m=>`<option value="${m.value}"${existing?.assessmentMethod===m.value?' selected':''}>${m.label}</option>`).join('')}
+          ${DPC.Areas.HC_METHODS.map(m=>`<option value="${m.value}"${existing?.assessmentMethod===m.value?' selected':''}>${m.label}</option>`).join('')}
         </select>
       </div>
-      <div style="font-size:.75rem;font-weight:600;color:var(--col-text-2);margin:14px 0 6px">
-        Dimension Scores <span style="font-weight:400;color:var(--col-muted)">(click a level to select; click again or "Clear" to deselect)</span>
+      <div style="font-size:.78rem;font-weight:600;color:var(--col-text-2);margin:14px 0 8px">
+        Dimension Scores
+        <span style="font-weight:400;color:var(--col-muted)"> — score each indicator independently · leave blank if not observed · click "Show success criteria" for guidance</span>
       </div>
-      <div id="hc-scores-container">
-        ${dimFields}
-      </div>
+      <div id="hc-scores-container">${dimFields}</div>
       <div class="form-field" style="margin-top:12px">
         <label class="form-label" for="hc-notes">Observations / Notes</label>
         <textarea class="form-textarea" id="hc-notes" rows="4" placeholder="What did you observe? Context, strengths, areas for development…">${DPC.escHtml(existing?.notes||'')}</textarea>
       </div>`;
 
     DPC.App.openModal(title, body, () => {
+      // Collect per-indicator scores per dimension
       const scores = {};
-      this.HC_DIMS.forEach(d => {
-        const selected = document.querySelector(`.hc-score-btn.hc-selected[data-dim="${d.key}"]`);
-        scores[d.key] = selected ? parseInt(selected.dataset.val) : null;
+      Object.keys(schema.dimensions).forEach(dk => {
+        const dim = schema.dimensions[dk];
+        const indicators = {};
+        (dim.indicators||[]).forEach((_, idx) => {
+          const sel = document.querySelector(`.hc-ind-btn.hc-ind-selected[data-dim="${dk}"][data-ind="${idx}"]`);
+          indicators[idx] = sel ? parseInt(sel.dataset.val) : null;
+        });
+        const avg = DPC.Areas._calcIndicatorAvg(indicators);
+        scores[dk] = { indicators, avg };
       });
 
       const record = {
@@ -1328,18 +1358,12 @@ DPC.Areas = {
 
       if (!area.healthChecks) area.healthChecks = { records: [], aggregateScore: null };
       if (!area.healthChecks.records) area.healthChecks.records = [];
+      const arr = area.healthChecks.records;
+      const idx = arr.findIndex(r=>r.id===record.id);
+      if (idx>=0) arr[idx]=record; else arr.push(record);
 
-      if (existing) {
-        const idx = area.healthChecks.records.findIndex(r=>r.id===existingId);
-        if (idx >= 0) area.healthChecks.records[idx] = record;
-      } else {
-        area.healthChecks.records.push(record);
-      }
-
-      // Recalc aggregate
-      area.healthChecks.aggregateScore = this._calcHCAggregate(area.healthChecks.records);
-      area.aggregateHealthCheckScore = area.healthChecks.aggregateScore;
-
+      area.healthChecks.aggregateScore = DPC.Areas._calcHCAggregate(arr);
+      area.aggregateHealthCheckScore   = area.healthChecks.aggregateScore;
       DPC.saveToLocalStorage();
       DPC.App.markUnsaved();
       DPC.Areas.switchTab('healthchecks');
@@ -1347,24 +1371,61 @@ DPC.Areas = {
     });
   },
 
-  _hcSelectScore: function(btn, dimKey, val) {
-    // Deselect all in this dim
-    document.querySelectorAll(`.hc-score-btn[data-dim="${dimKey}"]`).forEach(b => {
-      const s = DPC.Areas.HC_SCALE.find(s => s.value === parseInt(b.dataset.val));
-      b.classList.remove('hc-selected');
-      b.setAttribute('aria-pressed', 'false');
+  // Toggle per-indicator success criteria in modal
+  _toggleHCCriteria: function(dk, idx) {
+    const el  = document.getElementById(`hc-criteria-${dk}-${idx}`);
+    const btn = document.getElementById(`hc-crit-btn-${dk}-${idx}`);
+    if (!el) return;
+    const open = el.style.display === 'none';
+    el.style.display = open ? 'block' : 'none';
+    if (btn) btn.textContent = open ? 'Hide success criteria ▴' : 'Show success criteria ▾';
+  },
+
+  // Per-indicator score selection in modal
+  _hcIndScore: function(btn, dk, idx, val) {
+    // Clear all buttons for this indicator
+    document.querySelectorAll(`.hc-ind-btn[data-dim="${dk}"][data-ind="${idx}"]`).forEach(b => {
+      const s = DPC.Areas.HC_SCALE.find(s=>s.value===parseInt(b.dataset.val));
+      b.classList.remove('hc-ind-selected');
+      b.setAttribute('aria-pressed','false');
       b.style.border = '2px solid var(--col-border)';
       b.style.background = 'var(--col-surface)';
       b.style.color = 'var(--col-text-2)';
+      b.textContent = b.dataset.val;
+      // Reset row background
+      const row = document.getElementById(`hc-row-${dk}-${idx}`);
+      if (row) row.cells[parseInt(b.dataset.val)].style.background = '';
     });
-    if (val === null) return;
-    // Select the clicked one
-    const s = DPC.Areas.HC_SCALE.find(s => s.value === val);
-    btn.classList.add('hc-selected');
-    btn.setAttribute('aria-pressed', 'true');
-    btn.style.border = `2px solid ${s.color}`;
-    btn.style.background = `${s.color}22`;
-    btn.style.color = s.color;
+
+    if (val !== null && btn) {
+      const s = DPC.Areas.HC_SCALE.find(s=>s.value===val);
+      btn.classList.add('hc-ind-selected');
+      btn.setAttribute('aria-pressed','true');
+      btn.style.border = `2px solid ${s.color}`;
+      btn.style.background = s.color;
+      btn.style.color = '#fff';
+      btn.textContent = '✓';
+      const row = document.getElementById(`hc-row-${dk}-${idx}`);
+      if (row) row.cells[val].style.background = `${s.color}18`;
+    }
+
+    // Update live dimension average shown in header
+    const schema = DPC.hcSchema;
+    if (schema) {
+      const dim = schema.dimensions[dk];
+      const indicators = {};
+      (dim.indicators||[]).forEach((_,i) => {
+        const sel = document.querySelector(`.hc-ind-btn.hc-ind-selected[data-dim="${dk}"][data-ind="${i}"]`);
+        indicators[i] = sel ? parseInt(sel.dataset.val) : null;
+      });
+      const avg = DPC.Areas._calcIndicatorAvg(indicators);
+      const avgEl = document.getElementById(`hc-dim-avg-${dk}`);
+      if (avgEl) {
+        const color = avg ? DPC.Areas._hcColor(avg) : 'var(--col-muted)';
+        avgEl.style.color = color;
+        avgEl.textContent = avg ? `avg: ${avg.toFixed(1)}` : 'avg: —';
+      }
+    }
   },
 
   editHCRecord: function(areaCode, recordId) {
@@ -1378,62 +1439,44 @@ DPC.Areas = {
     area.healthChecks.records = area.healthChecks.records.filter(r=>r.id!==recordId);
     area.healthChecks.aggregateScore = this._calcHCAggregate(area.healthChecks.records);
     area.aggregateHealthCheckScore = area.healthChecks.aggregateScore;
-    DPC.saveToLocalStorage();
-    DPC.App.markUnsaved();
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
     DPC.Areas.switchTab('healthchecks');
     DPC.showToast('Record deleted');
   },
 
   showAddHCActionModal: function(areaCode, recordId) {
-    const area = DPC.getArea(areaCode);
+    const area   = DPC.getArea(areaCode);
     const record = area?.healthChecks?.records?.find(r=>r.id===recordId);
     if (!record) return;
-
     const body = `
-      <div class="form-field">
-        <label class="form-label" for="hca-staff">Staff Name</label>
-        <input class="form-input" id="hca-staff" type="text" value="${DPC.escHtml(record.staffName||'')}">
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="hca-action">Planned Action *</label>
-        <input class="form-input" id="hca-action" type="text" placeholder="Brief action description…">
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="hca-details">Full Details</label>
-        <textarea class="form-textarea" id="hca-details" rows="3" placeholder="What specifically needs to happen?"></textarea>
-      </div>
+      <div class="form-field"><label class="form-label" for="hca-staff">Staff Name</label>
+        <input class="form-input" id="hca-staff" type="text" value="${DPC.escHtml(record.staffName||'')}"></div>
+      <div class="form-field"><label class="form-label" for="hca-action">Planned Action *</label>
+        <input class="form-input" id="hca-action" type="text" placeholder="Brief action description…"></div>
+      <div class="form-field"><label class="form-label" for="hca-details">Full Details</label>
+        <textarea class="form-textarea" id="hca-details" rows="3"></textarea></div>
       <div class="form-row">
-        <div class="form-field">
-          <label class="form-label" for="hca-deadline">Deadline</label>
-          <input class="form-input" id="hca-deadline" type="date">
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="hca-owner">Ownership</label>
-          <input class="form-input" id="hca-owner" type="text" value="Graeme Wright">
-        </div>
+        <div class="form-field"><label class="form-label" for="hca-deadline">Deadline</label>
+          <input class="form-input" id="hca-deadline" type="date"></div>
+        <div class="form-field"><label class="form-label" for="hca-owner">Ownership</label>
+          <input class="form-input" id="hca-owner" type="text" value="Graeme Wright"></div>
       </div>
-      <div class="form-field">
-        <label class="form-label" for="hca-impact">Expected Impact</label>
-        <textarea class="form-textarea" id="hca-impact" rows="2" placeholder="What change do you expect to see?"></textarea>
-      </div>`;
-
-    DPC.App.openModal(`Add Action Point`, body, () => {
+      <div class="form-field"><label class="form-label" for="hca-impact">Expected Impact</label>
+        <textarea class="form-textarea" id="hca-impact" rows="2"></textarea></div>`;
+    DPC.App.openModal('Add Action Point', body, () => {
       const action = {
-        id: DPC.uid(),
-        staffId:       null,
-        staffName:     document.getElementById('hca-staff')?.value.trim() || '',
-        plannedAction: document.getElementById('hca-action')?.value.trim() || '',
-        details:       document.getElementById('hca-details')?.value || '',
-        deadline:      document.getElementById('hca-deadline')?.value || '',
-        ownership:     document.getElementById('hca-owner')?.value.trim() || '',
-        expectedImpact:document.getElementById('hca-impact')?.value || '',
-        status:        'not-started',
-        completedDate: null
+        id: DPC.uid(), staffId: null,
+        staffName:      document.getElementById('hca-staff')?.value.trim()||'',
+        plannedAction:  document.getElementById('hca-action')?.value.trim()||'',
+        details:        document.getElementById('hca-details')?.value||'',
+        deadline:       document.getElementById('hca-deadline')?.value||'',
+        ownership:      document.getElementById('hca-owner')?.value.trim()||'',
+        expectedImpact: document.getElementById('hca-impact')?.value||'',
+        status: 'not-started', completedDate: null
       };
       if (!record.actionPoints) record.actionPoints = [];
       record.actionPoints.push(action);
-      DPC.saveToLocalStorage();
-      DPC.App.markUnsaved();
+      DPC.saveToLocalStorage(); DPC.App.markUnsaved();
       DPC.Areas.switchTab('healthchecks');
       DPC.showToast('Action point added');
     });
@@ -1445,9 +1488,8 @@ DPC.Areas = {
     const action = record?.actionPoints?.find(ap=>ap.id===actionId);
     if (!action) return;
     action.status = status;
-    action.completedDate = status === 'completed' ? new Date().toISOString().split('T')[0] : null;
-    DPC.saveToLocalStorage();
-    DPC.App.markUnsaved();
+    action.completedDate = status==='completed' ? new Date().toISOString().split('T')[0] : null;
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
   },
 
   deleteHCAction: function(areaCode, recordId, actionId) {
@@ -1456,24 +1498,7 @@ DPC.Areas = {
     const record = area?.healthChecks?.records?.find(r=>r.id===recordId);
     if (!record) return;
     record.actionPoints = record.actionPoints.filter(ap=>ap.id!==actionId);
-    DPC.saveToLocalStorage();
-    DPC.App.markUnsaved();
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
     DPC.Areas.switchTab('healthchecks');
-  },
-
-  // ── HEALTH CHECK HELPERS ──────────────────────────────────────
-
-  _calcHCAggregate: function(records) {
-    if (!records || !records.length) return null;
-    const allScores = records.flatMap(r =>
-      Object.values(r.scores || {}).filter(v => v !== null && v !== undefined)
-    );
-    if (!allScores.length) return null;
-    return Math.round((allScores.reduce((a,b)=>a+b,0) / allScores.length) * 10) / 10;
-  },
-
-  _hcColor: function(score) {
-    const colors = { 1:'#dc2626', 2:'#ea580c', 3:'#ca8a04', 4:'#16a34a', 5:'#0284c7' };
-    return colors[score] || 'var(--col-muted)';
   }
 };
