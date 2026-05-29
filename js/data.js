@@ -59,6 +59,17 @@ async function loadRAGSchema() {
   }
 }
 
+// ── HEALTH CHECK SCHEMA LOADER ────────────────────────────────────
+DPC.hcSchema = null;
+async function loadHCSchema() {
+  try {
+    const r = await fetch('./data/hc-schema.json');
+    DPC.hcSchema = await r.json();
+  } catch(e) {
+    console.warn('HC schema not available:', e);
+  }
+}
+
 // ── LOCALSTORAGE ──────────────────────────────────────────────────
 DPC.saveToLocalStorage = function() {
   try {
@@ -165,6 +176,7 @@ function mergeSeedAreas(db, seedAreas) {
 // ── MAIN INIT ─────────────────────────────────────────────────────
 DPC.initDB = async function() {
   await loadRAGSchema();
+  await loadHCSchema();
   const seedAreas = await loadSeedData();
 
   // Try OneDrive first, then localStorage, then fresh
