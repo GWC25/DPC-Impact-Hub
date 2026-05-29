@@ -1,0 +1,3486 @@
+[
+  {
+    "code": "AGF",
+    "name": "Arts, Graphics & Fashion",
+    "group": "Arts, Creative & Media",
+    "campus": "Loxton",
+    "hoaName": "Chrissandra Boxley",
+    "dlName": "Chrystal Bliss & Eva Jarvis",
+    "context": "",
+    "strengths": "Good digital foundation. Staff are visual learners \u2014 examples of good practice motivate them.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-agf-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Really positive meeting with clear understanding of role and future involvement.\n\nStrengths noted: Good digital foundation. Staff are visual learners \u2014 examples of good practice motivate them.\n\nAFIs: Staff CPD needed in Digital TLA \u2014 all six CPD areas rated High. Digital learning environments not checked this year.",
+        "keyDiscussionPoints": "Really positive meeting with clear understanding of role and future involvement.",
+        "actions": [
+          {
+            "id": "action-agf-m1-1",
+            "text": "Book Digital Learning Walk with Chrissandra. Team CPD session on Teams environments. Share examples of strong Digital TLA.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Staff CPD needed in Digital TLA \u2014 all six CPD areas rated High. Digital learning environments not checked this year.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Really positive meeting with clear understanding of role and future involvement.",
+    "m1Actions": "Book Digital Learning Walk with Chrissandra. Team CPD session on Teams environments. Share examples of strong Digital TLA.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Book Digital Learning Walk with Chrissandra. Team CPD session on Teams environments. Share examples of strong Digital TLA."
+  },
+  {
+    "code": "AHE",
+    "name": "Access to Higher Education",
+    "group": "Higher & Professional",
+    "campus": "Knightstone",
+    "hoaName": "Sean Shearing",
+    "dlName": "Sean Shearing (changing July)",
+    "context": "",
+    "strengths": "",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 1,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 5)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 1
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-ahe-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Not great digitally \u2014 splitting provision up. Animal, Nursing, Psych, Business. Digital is not a top priority for Sean.\n\nStrengths noted: Not recorded.\n\nAFIs: Meeting not yet arranged. No form submitted.",
+        "keyDiscussionPoints": "Not great digitally \u2014 splitting provision up. Animal, Nursing, Psych, Business. Digital is not a top priority for Sean.",
+        "actions": [
+          {
+            "id": "action-ahe-m1-1",
+            "text": "Explore or chase Digital Skills handover doc from Sean to plan for support.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-ahe-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Limited cloud platform training (AWS gap). Staff laptops underpowered for computing needs. Hardware maintenance burden. Digital poverty (learners without home devices).\n\nStrengths: Highly digitally mature. Staff confident with tools & self-directed. Industry-standard equipment (PC, VR, 3D printer, milling machine). Strong outcomes.\n\nAFIs & Next Steps: Phase 1: Ask Sean to mentor one other area (suggest DCI or GMA). AWS training pathway for staff (external CPD). Phase 2: Staff laptop upgrade proposal to leadership. Health Check: Monthly reflective practice with Sean (showcase model).",
+        "keyDiscussionPoints": "Limited cloud platform training (AWS gap). Staff laptops underpowered for computing needs. Hardware maintenance burden. Digital poverty (learners without home devices).",
+        "actions": [
+          {
+            "id": "action-ahe-m2-1",
+            "text": "Explore or chase Digital Skills handover doc from Sean to plan for support.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Meeting not yet arranged. No form submitted.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Not great digitally \u2014 splitting provision up. Animal, Nursing, Psych, Business. Digital is not a top priority for Sean.",
+    "m1Actions": "Explore or chase Digital Skills handover doc from Sean to plan for support.",
+    "m2KDP": "Limited cloud platform training (AWS gap). Staff laptops underpowered for computing needs. Hardware maintenance burden. Digital poverty (learners without home devices).",
+    "m2Strengths": "Highly digitally mature. Staff confident with tools & self-directed. Industry-standard equipment (PC, VR, 3D printer, milling machine). Strong outcomes.",
+    "m2AFIs": "Phase 1: Ask Sean to mentor one other area (suggest DCI or GMA). AWS training pathway for staff (external CPD). Phase 2: Staff laptop upgrade proposal to leadership. Health Check: Monthly reflective practice with Sean (showcase model).",
+    "nextPlannedAction": "Explore or chase Digital Skills handover doc from Sean to plan for support."
+  },
+  {
+    "code": "ANM",
+    "name": "Animal Management",
+    "group": "Land & Animal",
+    "campus": "Puxton Park",
+    "hoaName": "Laura Link",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "Genuine enthusiasm for digital learning and its potential. Good understanding of the bigger picture.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-anm-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Really engaged and positive about the potential and bigger picture of digital learning and the impact.\n\nStrengths noted: Genuine enthusiasm for digital learning and its potential. Good understanding of the bigger picture.\n\nAFIs: No form submitted. No Digital Lead identified. RAG not yet recorded.",
+        "keyDiscussionPoints": "Really engaged and positive about the potential and bigger picture of digital learning and the impact.",
+        "actions": [
+          {
+            "id": "action-anm-m1-1",
+            "text": "Follow up with form. Identify Digital Lead. Agree priority actions.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form submitted. No Digital Lead identified. RAG not yet recorded.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Really engaged and positive about the potential and bigger picture of digital learning and the impact.",
+    "m1Actions": "Follow up with form. Identify Digital Lead. Agree priority actions.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Follow up with form. Identify Digital Lead. Agree priority actions."
+  },
+  {
+    "code": "BUI",
+    "name": "Building Services (Construction)",
+    "group": "Engineering & Construction",
+    "campus": "SWSC",
+    "hoaName": "Richard Hanney",
+    "dlName": "Steven Jakeway & Christie Ross",
+    "context": "",
+    "strengths": "Clear industry-relevant digital skills vision \u2014 clocking in, MS Fundamentals, business start-up. Richard is motivated.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-bui-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Idea for clocking in/out resource. Wants to teach MS Fundamentals. Business start-up programme. Clear industry-relevant digital skills vision.\n\nStrengths noted: Clear industry-relevant digital skills vision \u2014 clocking in, MS Fundamentals, business start-up. Richard is motivated.\n\nAFIs: No survey form. No Digital Lead identified. Teams environment not assessed.",
+        "keyDiscussionPoints": "Idea for clocking in/out resource. Wants to teach MS Fundamentals. Business start-up programme. Clear industry-relevant digital skills vision.",
+        "actions": [
+          {
+            "id": "action-bui-m1-1",
+            "text": "Support Richard with clocking-in resource design. Book MS Fundamentals session. Identify Digital Lead.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-bui-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Inconsistent network & connectivity in workshop areas. Limited learner confidence/independence with digital systems. Access to industry-standard CAD software.\n\nStrengths: Strong foundation in digital portfolio systems and online evidence tracking. Clear progression in digital teaching adoption. Good learner exposure to industry tools.\n\nAFIs & Next Steps: Meet with Richard & DLs (Jakeway, Ross) to review Health Checks. Network infrastructure audit in workshops. Prioritize CAD/simulation software options.",
+        "keyDiscussionPoints": "Inconsistent network & connectivity in workshop areas. Limited learner confidence/independence with digital systems. Access to industry-standard CAD software.",
+        "actions": [
+          {
+            "id": "action-bui-m2-1",
+            "text": "Need to sit with Richard and team to flesh out plans for clocking in/out systems, MS Fundamentals, Business Start-Up programmes, how to build a foundation and culture of learning.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No survey form. No Digital Lead identified. Teams environment not assessed.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Idea for clocking in/out resource. Wants to teach MS Fundamentals. Business start-up programme. Clear industry-relevant digital skills vision.",
+    "m1Actions": "Support Richard with clocking-in resource design. Book MS Fundamentals session. Identify Digital Lead.",
+    "m2KDP": "Inconsistent network & connectivity in workshop areas. Limited learner confidence/independence with digital systems. Access to industry-standard CAD software.",
+    "m2Strengths": "Strong foundation in digital portfolio systems and online evidence tracking. Clear progression in digital teaching adoption. Good learner exposure to industry tools.",
+    "m2AFIs": "Meet with Richard & DLs (Jakeway, Ross) to review Health Checks. Network infrastructure audit in workshops. Prioritize CAD/simulation software options.",
+    "nextPlannedAction": "Need to sit with Richard and team to flesh out plans for clocking in/out systems, MS Fundamentals, Business Start-Up programmes, how to build a foundation and culture of learning."
+  },
+  {
+    "code": "BUS",
+    "name": "Business & Tourism",
+    "group": "Business & Professional",
+    "campus": "Knightstone",
+    "hoaName": "Ben Melhuish",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 4,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 2)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 4
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-bus-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Conversations remain positive around Digital Skills within his area. New form for barriers and Digital Leads, Digital Skills discussed.\n\nStrengths noted: Not recorded.\n\nAFIs: BUS HoA did not attend meeting originally. EXPLORE Industry DS, Digital Lead, and Baseline & Progress of Digital Skills.",
+        "keyDiscussionPoints": "Conversations remain positive around Digital Skills within his area. New form for barriers and Digital Leads, Digital Skills discussed.",
+        "actions": [
+          {
+            "id": "action-bus-m1-1",
+            "text": "Rearrange meeting with BUS HoA directly. Explore Industry DS, Digital Lead, and Baseline & Progress of Digital Skills.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-bus-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Staff confident with AI, project management tools, dashboards. Excellent Teams usage across all class spaces. Good learner engagement with digital platforms.\n\nStrengths: Staff less confident with CRMs and Digital Booking Systems. Quantity of devices still a constraint despite good provision. Some learners without laptops.\n\nAFIs & Next Steps: Need to discuss CRM & booking system training; device equity audit; software licensing review.",
+        "keyDiscussionPoints": "Staff confident with AI, project management tools, dashboards. Excellent Teams usage across all class spaces. Good learner engagement with digital platforms.",
+        "actions": [
+          {
+            "id": "action-bus-m2-1",
+            "text": "Book time in June post-exams to discuss CRM & booking system training, device equity audit, and software licensing review.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "BUS HoA did not attend meeting originally. EXPLORE Industry DS, Digital Lead, and Baseline & Progress of Digital Skills.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Conversations remain positive around Digital Skills within his area. New form for barriers and Digital Leads, Digital Skills discussed.",
+    "m1Actions": "Rearrange meeting with BUS HoA directly. Explore Industry DS, Digital Lead, and Baseline & Progress of Digital Skills.",
+    "m2KDP": "Staff confident with AI, project management tools, dashboards. Excellent Teams usage across all class spaces. Good learner engagement with digital platforms.",
+    "m2Strengths": "Staff less confident with CRMs and Digital Booking Systems. Quantity of devices still a constraint despite good provision. Some learners without laptops.",
+    "m2AFIs": "Need to discuss CRM & booking system training; device equity audit; software licensing review.",
+    "nextPlannedAction": "Book time in June post-exams to discuss CRM & booking system training, device equity audit, and software licensing review."
+  },
+  {
+    "code": "CED",
+    "name": "Community Education",
+    "group": "Community & External",
+    "campus": "Multi",
+    "hoaName": "Charlotte Hynes",
+    "dlName": "TBC (submitted by 20th May)",
+    "context": "",
+    "strengths": "Keen to develop and improve team and learner digital skills. Knows her team and learners' digital gaps.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 1,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 5)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 1
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-ced-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Charlotte declined initial meeting. Becky Morris facilitated introduction. An exceptional conversation about Digital Skills once contact was made.\n\nStrengths noted: Keen to develop and improve team and learner digital skills. Knows her team and learners' digital gaps.\n\nAFIs: Tracking seems like a monolithic Excel file. Worried about how to evidence learner progress digitally in community context.",
+        "keyDiscussionPoints": "Charlotte declined initial meeting. Becky Morris facilitated introduction. An exceptional conversation about Digital Skills once contact was made.",
+        "actions": [
+          {
+            "id": "action-ced-m1-1",
+            "text": "Charlotte to book 1:1 support on investigating platforms for data tracking and improved dashboards.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Tracking seems like a monolithic Excel file. Worried about how to evidence learner progress digitally in community context.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Charlotte declined initial meeting. Becky Morris facilitated introduction. An exceptional conversation about Digital Skills once contact was made.",
+    "m1Actions": "Charlotte to book 1:1 support on investigating platforms for data tracking and improved dashboards.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Charlotte to book 1:1 support on investigating platforms for data tracking, improved dashboards for her team, and how to use them effectively."
+  },
+  {
+    "code": "CON",
+    "name": "Construction Trades",
+    "group": "Engineering & Construction",
+    "campus": "SWSC",
+    "hoaName": "Richard Hanney",
+    "dlName": "Steven Jakeway & Christie Ross",
+    "context": "",
+    "strengths": "Understands Industry Digital Skill requirements and aspirations.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-con-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Richard Hanney leads on CON as well as BUI. The key issue here is the Assessors \u2014 training is already planned through MS Fundamentals.\n\nStrengths noted: Understands Industry Digital Skill requirements and aspirations.\n\nAFIs: Touch base on specific Industry Skills and work with Apprenticeship Assessors on their Digital Skills to help support learners.",
+        "keyDiscussionPoints": "Richard Hanney leads on CON as well as BUI. The key issue here is the Assessors \u2014 training is already planned through MS Fundamentals.",
+        "actions": [
+          {
+            "id": "action-con-m1-1",
+            "text": "Explore MS Fundamentals idea from BUI.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-con-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Inconsistent network & connectivity in workshop areas. Limited learner confidence/independence with digital systems.\n\nStrengths: Strong foundation in digital portfolio systems and online evidence tracking. Clear progression in digital teaching adoption.\n\nAFIs & Next Steps: Meet with Richard & DLs to review Health Checks. Network infrastructure audit in workshops.",
+        "keyDiscussionPoints": "Inconsistent network & connectivity in workshop areas. Limited learner confidence/independence with digital systems.",
+        "actions": [
+          {
+            "id": "action-con-m2-1",
+            "text": "Explore MS Fundamentals idea from BUI. Touch base on specific Industry Skills and work with Apprenticeship Assessors on their Digital Skills.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Touch base on specific Industry Skills and work with Apprenticeship Assessors on their Digital Skills to help support learners.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Richard Hanney leads on CON as well as BUI. The key issue here is the Assessors \u2014 training is already planned through MS Fundamentals.",
+    "m1Actions": "Explore MS Fundamentals idea from BUI.",
+    "m2KDP": "Inconsistent network & connectivity in workshop areas. Limited learner confidence/independence with digital systems.",
+    "m2Strengths": "Strong foundation in digital portfolio systems and online evidence tracking. Clear progression in digital teaching adoption.",
+    "m2AFIs": "Meet with Richard & DLs to review Health Checks. Network infrastructure audit in workshops.",
+    "nextPlannedAction": "Explore MS Fundamentals idea from BUI. Touch base on specific Industry Skills and work with Apprenticeship Assessors on their Digital Skills."
+  },
+  {
+    "code": "CTC",
+    "name": "Construction Training Centre",
+    "group": "Engineering & Construction",
+    "campus": "CTC",
+    "hoaName": "John Fowler",
+    "dlName": "John Fowler & Dave Evans",
+    "context": "",
+    "strengths": "Strong existing digital practice \u2014 Teams, Forms, rubrics, assignments. Industry tools in active use (DTS, CITB). Digital Champions identified.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-ctc-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Site visit arranged. Really positive and engaged. Keen to develop and showcase good practice.\n\nStrengths noted: Strong existing digital practice \u2014 Teams, Forms, rubrics, assignments. Industry tools in active use (DTS, CITB). Digital Champions identified.\n\nAFIs: Staff CPD in data/evidence use and subject-specific software rated High. Moderate in AI literacy.",
+        "keyDiscussionPoints": "Site visit arranged. Really positive and engaged. Keen to develop and showcase good practice.",
+        "actions": [
+          {
+            "id": "action-ctc-m1-1",
+            "text": "Observe and document good practice for wider college sharing. Support John on assignment-based learning. Connect Dave Evans to Digital Leads network.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Staff CPD in data/evidence use and subject-specific software rated High. Moderate in AI literacy.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Site visit arranged. Really positive and engaged. Keen to develop and showcase good practice.",
+    "m1Actions": "Observe and document good practice for wider college sharing. Support John on assignment-based learning. Connect Dave Evans to Digital Leads network.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Touch base after May half-term to discuss impact of Teams Learning Environments and how I can support."
+  },
+  {
+    "code": "DCI",
+    "name": "Digital Computing & IT",
+    "group": "Digital & Computing",
+    "campus": "UCW & Knightstone",
+    "hoaName": "Sean Shearing",
+    "dlName": "Sean Shearing (confirmed)",
+    "context": "",
+    "strengths": "Confident, strong digital foundations. Highest-performing area digitally. Good model for others.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 5,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 1)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 5
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-dci-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Sean understands the angle. Invited Graeme in to explore practice and advise on further progression.\n\nStrengths noted: Confident, strong digital foundations. Highest-performing area digitally. Good model for others.\n\nAFIs: No Digital Lead formally identified. Sean sees himself as Stage 3 already \u2014 may need challenge rather than support.",
+        "keyDiscussionPoints": "Sean understands the angle. Invited Graeme in to explore practice and advise on further progression.",
+        "actions": [
+          {
+            "id": "action-dci-m1-1",
+            "text": "Identify a Digital Lead from Sean's team. Arrange observation visit. Use DCI as showcase for college.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No Digital Lead formally identified. Sean sees himself as Stage 3 already \u2014 may need challenge rather than support.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Sean understands the angle. Invited Graeme in to explore practice and advise on further progression.",
+    "m1Actions": "Identify a Digital Lead from Sean's team. Arrange observation visit. Use DCI as showcase for college.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Go and see them in practice to discuss how we can move the team forward, or learn from exceptional practice."
+  },
+  {
+    "code": "EEY",
+    "name": "Education & Early Years",
+    "group": "Education & Health",
+    "campus": "Knightstone",
+    "hoaName": "Rachael Moger",
+    "dlName": "Sharon Walters (confirmed)",
+    "context": "",
+    "strengths": "Survey completed \u2014 good engagement through the form. Sharon Walters confirmed as Digital Lead.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-eey-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Support needed for digital TLA specifically around Assessment & Data. Form completed.\n\nStrengths noted: Survey completed \u2014 good engagement through the form. Sharon Walters confirmed as Digital Lead.\n\nAFIs: HoA did not attend meeting. CPD needs in assessment and data use flagged.",
+        "keyDiscussionPoints": "Support needed for digital TLA specifically around Assessment & Data. Form completed.",
+        "actions": [
+          {
+            "id": "action-eey-m1-1",
+            "text": "Arrange direct meeting with Rachael Moger. Follow up with Sharon Walters re Digital Lead role. Focus CPD on assessment and data.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-eey-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Early adoption of Famly platform uncertain. WiFi issues in EY corridor. Printing infrastructure gaps. Assessment platform inconsistencies.\n\nStrengths: Strong Teams adoption & learner engagement with digital resources. Parental communication via apps (Tapestry, Famly). High learner engagement.\n\nAFIs & Next Steps: Phase 1: WiFi & printing infrastructure audit. Famly platform adoption plan. Phase 2: 100% Century IA. Specialist skills: digital communication, media, and CYPD-specific tools.",
+        "keyDiscussionPoints": "Early adoption of Famly platform uncertain. WiFi issues in EY corridor. Printing infrastructure gaps. Assessment platform inconsistencies.",
+        "actions": []
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "HoA did not attend meeting. CPD needs in assessment and data use flagged.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Support needed for digital TLA specifically around Assessment & Data. Form completed.",
+    "m1Actions": "Arrange direct meeting with Rachael Moger. Follow up with Sharon Walters re Digital Lead role. Focus CPD on assessment and data.",
+    "m2KDP": "Early adoption of Famly platform uncertain. WiFi issues in EY corridor. Printing infrastructure gaps. Assessment platform inconsistencies.",
+    "m2Strengths": "Strong Teams adoption & learner engagement with digital resources. Parental communication via apps (Tapestry, Famly). High learner engagement.",
+    "m2AFIs": "Phase 1: WiFi & printing infrastructure audit. Famly platform adoption plan. Phase 2: 100% Century IA. Specialist skills: digital communication, media, and CYPD-specific tools.",
+    "nextPlannedAction": ""
+  },
+  {
+    "code": "EFE",
+    "name": "Engineering WBL FE",
+    "group": "Engineering & Construction",
+    "campus": "SWSC",
+    "hoaName": "Thanos Adamos",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 4,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 2)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 4
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-efe-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Thanos Adamos is the link to this area. Need a bigger and deeper understanding of this specific area, their Industry DS and their Digital Lead.\n\nStrengths noted: Not recorded.\n\nAFIs: Need a bigger and deeper understanding of this specific area, their Industry DS and their Digital Lead.",
+        "keyDiscussionPoints": "Thanos Adamos is the link to this area. Need a bigger and deeper understanding of this specific area, their Industry DS and their Digital Lead.",
+        "actions": [
+          {
+            "id": "action-efe-m1-1",
+            "text": "Identify EFE HoA. Arrange meeting. Note Smart Assessor EPA context for WBL.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Need a bigger and deeper understanding of this specific area, their Industry DS and their Digital Lead.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Thanos Adamos is the link to this area. Need a bigger and deeper understanding of this specific area, their Industry DS and their Digital Lead.",
+    "m1Actions": "Identify EFE HoA. Arrange meeting. Note Smart Assessor EPA context for WBL.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Identify EFE HoA. Arrange meeting. Note Smart Assessor EPA context for WBL."
+  },
+  {
+    "code": "EGL",
+    "name": "English",
+    "group": "English & Maths",
+    "campus": "Multi",
+    "hoaName": "Libby Heath-Tavener",
+    "dlName": "Georgina Berritta (Loxton)",
+    "context": "",
+    "strengths": "Clear understanding of Century's potential for funded digital hours. Libby engaged on College-wide Century deployment.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-egl-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Meeting with Libby Heath-Tavener and Jason Clear. GoTeach Maths discussed. Century first college approach needed. 35 hours needed.\n\nStrengths noted: Clear understanding of Century's potential for funded digital hours. Libby engaged on College-wide Century deployment.\n\nAFIs: No form submitted. No formal Digital Lead. Maths and English need cross-college Century approach confirmed with Sam, Matt, and Neil.",
+        "keyDiscussionPoints": "Meeting with Libby Heath-Tavener and Jason Clear. GoTeach Maths discussed. Century first college approach needed. 35 hours needed.",
+        "actions": [
+          {
+            "id": "action-egl-m1-1",
+            "text": "1:1 with Libby before May half-term re Century. Wider team session planned. Confirm Century as college-wide digital hours tool.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form submitted. No formal Digital Lead. Maths and English need cross-college Century approach confirmed with Sam, Matt, and Neil.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Meeting with Libby Heath-Tavener and Jason Clear. GoTeach Maths discussed. Century first college approach needed. 35 hours needed.",
+    "m1Actions": "1:1 with Libby before May half-term re Century. Wider team session planned. Confirm Century as college-wide digital hours tool.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "1) Arrange training for Libby with Sam at Century. 2) How do we support learners who are absent \u2014 Digital Learning Environments first. 3) Eng & Maths SharePoint needed."
+  },
+  {
+    "code": "EHE",
+    "name": "Engineering Higher Education",
+    "group": "Engineering & Construction",
+    "campus": "SWSC",
+    "hoaName": "Thanos Adamos",
+    "dlName": "Akshay Ramteke",
+    "context": "",
+    "strengths": "",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 4,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 2)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 4
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-ehe-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Thanos Adamos is the link to this area. GKN Aerospace and other employers are relevant here.\n\nStrengths noted: Not recorded.\n\nAFIs: Need a bigger and deeper understanding of this specific area, their Industry DS and their Digital Lead.",
+        "keyDiscussionPoints": "Thanos Adamos is the link to this area. GKN Aerospace and other employers are relevant here.",
+        "actions": [
+          {
+            "id": "action-ehe-m1-1",
+            "text": "Identify EHE HoA. Arrange meeting. Connect to employer expectations re BIM and digital engineering.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Need a bigger and deeper understanding of this specific area, their Industry DS and their Digital Lead.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Thanos Adamos is the link to this area. GKN Aerospace and other employers are relevant here.",
+    "m1Actions": "Identify EHE HoA. Arrange meeting. Connect to employer expectations re BIM and digital engineering.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Identify EHE HoA. Arrange meeting. Connect to employer expectations re BIM and digital engineering."
+  },
+  {
+    "code": "EMV",
+    "name": "Engineering & Motor Vehicle",
+    "group": "Engineering & Construction",
+    "campus": "SWSC",
+    "hoaName": "Andreas Papadopoulos",
+    "dlName": "Ben Holt (confirmed)",
+    "context": "",
+    "strengths": "Advanced Forms use discussed \u2014 auto marking, Copilot in Excel for analytics. Enthusiastic about AI-assisted assessment.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-emv-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Briefly met re other TLA strategies. Felix is Deputy to Andreas and future HoA.\n\nStrengths noted: Advanced Forms use discussed \u2014 auto marking, Copilot in Excel for analytics. Enthusiastic about AI-assisted assessment.\n\nAFIs: Felix is Deputy \u2014 Andreas Panos is current HoA. EV diagnostics and digital tools not yet formally mapped. No form.",
+        "keyDiscussionPoints": "Briefly met re other TLA strategies. Felix is Deputy to Andreas and future HoA.",
+        "actions": [
+          {
+            "id": "action-emv-m1-1",
+            "text": "Arrange meeting with Andreas (HoA) and Felix. Book Forms/Copilot coaching session. Map EV digital skills to EDS categories.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-emv-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Limited laptop access (more laptops needed). No current printing infrastructure. Software gap: diagnostics & AI-aided proficiency support.\n\nStrengths: Staff have strong base understanding of digital tools. Strong learner progression rates. Industry-standard diagnostic equipment in use.\n\nAFIs & Next Steps: Meet with Felix & Ben Holt to map priorities. Diagnostic equipment & software gap analysis. Laptop resource planning.",
+        "keyDiscussionPoints": "Limited laptop access (more laptops needed). No current printing infrastructure. Software gap: diagnostics & AI-aided proficiency support.",
+        "actions": [
+          {
+            "id": "action-emv-m2-1",
+            "text": "Reach out for Teach Meet following discussion around Teams Learning Environment and Digital Skills.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Felix is Deputy \u2014 Andreas Panos is current HoA. EV diagnostics and digital tools not yet formally mapped. No form.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Briefly met re other TLA strategies. Felix is Deputy to Andreas and future HoA.",
+    "m1Actions": "Arrange meeting with Andreas (HoA) and Felix. Book Forms/Copilot coaching session. Map EV digital skills to EDS categories.",
+    "m2KDP": "Limited laptop access (more laptops needed). No current printing infrastructure. Software gap: diagnostics & AI-aided proficiency support.",
+    "m2Strengths": "Staff have strong base understanding of digital tools. Strong learner progression rates. Industry-standard diagnostic equipment in use.",
+    "m2AFIs": "Meet with Felix & Ben Holt to map priorities. Diagnostic equipment & software gap analysis. Laptop resource planning.",
+    "nextPlannedAction": "Reach out for Teach Meet following discussion around Teams Learning Environment and Digital Skills."
+  },
+  {
+    "code": "ENG",
+    "name": "Engineering (General)",
+    "group": "Engineering & Construction",
+    "campus": "SWSC",
+    "hoaName": "Thanos Adamos",
+    "dlName": "Thanos Adamos",
+    "context": "",
+    "strengths": "Thanos is self-aware about digital limitations and motivated to improve. Willing to be Digital Lead for his area.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 4,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 2)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 4
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-eng-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Very engaged. Wants more engaging and fun learning to move away from PowerPoint-driven teaching.\n\nStrengths noted: Thanos is self-aware about digital limitations and motivated to improve. Willing to be Digital Lead for his area.\n\nAFIs: Teams environment needs assessing and standardising. No form submitted. Over-reliance on PowerPoint slides.",
+        "keyDiscussionPoints": "Very engaged. Wants more engaging and fun learning to move away from PowerPoint-driven teaching.",
+        "actions": [
+          {
+            "id": "action-eng-m1-1",
+            "text": "Assess Thanos's Teams environment. Book session on dynamic PowerPoint/Sway approaches. Confirm Thanos as Digital Lead.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Teams environment needs assessing and standardising. No form submitted. Over-reliance on PowerPoint slides.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Very engaged. Wants more engaging and fun learning to move away from PowerPoint-driven teaching.",
+    "m1Actions": "Assess Thanos's Teams environment. Book session on dynamic PowerPoint/Sway approaches. Confirm Thanos as Digital Lead.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Need to arrange 1:1 with Thanos on Teams Digital Learning Environment. Will first Health Check his Teams area and provide the report."
+  },
+  {
+    "code": "ESO",
+    "name": "ESOL",
+    "group": "English & Maths",
+    "campus": "Multi",
+    "hoaName": "Alexia Sporidis",
+    "dlName": "John Robertson (TBC)",
+    "context": "",
+    "strengths": "Alexia is very positive and forward-thinking. SpringPod partnership potential (UCAS). Refresher on Teams and Accessibility/Inclusion planned.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 2,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 4)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 2
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-eso-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Major IT infrastructure concerns raised. SpringPod Virtual Work Experience discussed. Team needs significant support.\n\nStrengths noted: Alexia is very positive and forward-thinking. SpringPod partnership potential (UCAS). Refresher on Teams and Accessibility/Inclusion planned.\n\nAFIs: Team needs a lot of support. IT infrastructure is a major barrier. Monitoring and intervention not yet systematic.",
+        "keyDiscussionPoints": "Major IT infrastructure concerns raised. SpringPod Virtual Work Experience discussed. Team needs significant support.",
+        "actions": [
+          {
+            "id": "action-eso-m1-1",
+            "text": "Alexia to book team session. Refresher on Teams and Accessibility/Inclusion. Hand SpringPod investigation to Liam Fisher.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Team needs a lot of support. IT infrastructure is a major barrier. Monitoring and intervention not yet systematic.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Major IT infrastructure concerns raised. SpringPod Virtual Work Experience discussed. Team needs significant support.",
+    "m1Actions": "Alexia to book team session. Refresher on Teams and Accessibility/Inclusion. Hand SpringPod investigation to Liam Fisher.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Follow up with Alexia the Teach-Meet on accessibility and Teams refresh."
+  },
+  {
+    "code": "EXT",
+    "name": "External Contracts & Provision",
+    "group": "Community & External",
+    "campus": "Multi",
+    "hoaName": "Becky Morris & Ian Oakley",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "Becky is a connector \u2014 willing to share resources across her network. Proactive engagement.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 2,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 4)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 2
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-ext-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Becky was very engaged. Will share Forms link with others and Teams support page.\n\nStrengths noted: Becky is a connector \u2014 willing to share resources across her network. Proactive engagement.\n\nAFIs: No form yet. No Digital Lead. CED (Charlotte Hynes) introduced via Becky as a bridge contact.",
+        "keyDiscussionPoints": "Becky was very engaged. Will share Forms link with others and Teams support page.",
+        "actions": [
+          {
+            "id": "action-ext-m1-1",
+            "text": "Follow up for survey completion. Support Becky to reach Charlotte Hynes. Identify Digital Lead.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form yet. No Digital Lead. CED (Charlotte Hynes) introduced via Becky as a bridge contact.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Becky was very engaged. Will share Forms link with others and Teams support page.",
+    "m1Actions": "Follow up for survey completion. Support Becky to reach Charlotte Hynes. Identify Digital Lead.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Follow up for survey completion. Support Becky to reach Charlotte Hynes (CED). Identify Digital Lead."
+  },
+  {
+    "code": "FAU",
+    "name": "FIP Autism",
+    "group": "Foundation & Inclusion (FIP)",
+    "campus": "Multi",
+    "hoaName": "Andy Girling & Jess Gill",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "Strong AT awareness. Jess Gill keen on staff development \u2014 'Learning Accessible Digitally'. Accessibility toolkit shared.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 4,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 2)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 4
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-fau-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Meeting with Andy Girling, Jess Gill, Liz Burkley, Joe Radcliffe. Licences, SharePoint, AT tools discussed.\n\nStrengths noted: Strong AT awareness. Jess Gill keen on staff development \u2014 'Learning Accessible Digitally'. Accessibility toolkit shared.\n\nAFIs: Staff need to develop mastery of AT tools to support learners. No form. No formal Digital Lead.",
+        "keyDiscussionPoints": "Meeting with Andy Girling, Jess Gill, Liz Burkley, Joe Radcliffe. Licences, SharePoint, AT tools discussed.",
+        "actions": [
+          {
+            "id": "action-fau-m1-1",
+            "text": "Meet Liz Burkley post-Easter re adaptive/intelligent TLA for SEND. Support Jess Gill with staff AT training. Add videos to Accessibility Toolkit.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Staff need to develop mastery of AT tools to support learners. No form. No formal Digital Lead.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Meeting with Andy Girling, Jess Gill, Liz Burkley, Joe Radcliffe. Licences, SharePoint, AT tools discussed.",
+    "m1Actions": "Meet Liz Burkley post-Easter re adaptive/intelligent TLA for SEND. Support Jess Gill with staff AT training. Add videos to Accessibility Toolkit.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "1) What existing licences for Netflix etc. 2) Gather feedback on Accessibility Toolkit resource. 3) Training options for staff (Jess Gill). 4) Meet with Liz Burkley about smart changes to teaching practice for SEND learners."
+  },
+  {
+    "code": "FCO",
+    "name": "FIP Complex Needs",
+    "group": "Foundation & Inclusion (FIP)",
+    "campus": "Multi",
+    "hoaName": "Andy Girling",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-fco-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Andy Girling and Jess Gill are the links to this area. No direct HoA meeting. AT and device reliability is a safeguarding issue for this cohort.\n\nStrengths noted: Not recorded.\n\nAFIs: No direct HoA meeting. AT and device reliability is a safeguarding issue for this cohort.",
+        "keyDiscussionPoints": "Andy Girling and Jess Gill are the links to this area. No direct HoA meeting. AT and device reliability is a safeguarding issue for this cohort.",
+        "actions": [
+          {
+            "id": "action-fco-m1-1",
+            "text": "Include FCO in FIP AT strategy. Confirm device and software reliability with IT.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No direct HoA meeting. AT and device reliability is a safeguarding issue for this cohort.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Andy Girling and Jess Gill are the links to this area. No direct HoA meeting. AT and device reliability is a safeguarding issue for this cohort.",
+    "m1Actions": "Include FCO in FIP AT strategy. Confirm device and software reliability with IT.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Include FCO in FIP AT strategy. Confirm device and software reliability with IT."
+  },
+  {
+    "code": "FEH",
+    "name": "FIP Supported Employment Excellence",
+    "group": "Foundation & Inclusion (FIP)",
+    "campus": "Multi",
+    "hoaName": "Jess Gill",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "Jess Gill engaged via FIP meeting. Assessment and data are the priority focus.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 4,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 2)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 4
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-feh-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Form submitted. Support needed for digital TLA around Assessment & Data.\n\nStrengths noted: Jess Gill engaged via FIP meeting. Assessment and data are the priority focus.\n\nAFIs: Assessment and data digital skills are the priority gap. Digital daily living tools for SOLEX pathway not yet mapped.",
+        "keyDiscussionPoints": "Form submitted. Support needed for digital TLA around Assessment & Data.",
+        "actions": [
+          {
+            "id": "action-feh-m1-1",
+            "text": "Follow up with Jess on FEH specific needs. Map SOLEX digital transition skills to EDS categories.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Assessment and data digital skills are the priority gap. Digital daily living tools for SOLEX pathway not yet mapped.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Form submitted. Support needed for digital TLA around Assessment & Data.",
+    "m1Actions": "Follow up with Jess on FEH specific needs. Map SOLEX digital transition skills to EDS categories.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Follow up with Jess on FEH specific needs. Map SOLEX digital transition skills to EDS categories."
+  },
+  {
+    "code": "FPL",
+    "name": "FIP Pre-Vocational",
+    "group": "Foundation & Inclusion (FIP)",
+    "campus": "Multi",
+    "hoaName": "Joe Radcliffe",
+    "dlName": "Becky Salter (TBC)",
+    "context": "",
+    "strengths": "",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-fpl-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Andy Girling and Jess Gill are the links to this area. FPL learners need digital daily living skills (NHS App, banking, travel).\n\nStrengths noted: Not recorded.\n\nAFIs: No meeting. FPL learners need digital daily living skills. Connect to Learning Without Barriers work.",
+        "keyDiscussionPoints": "Andy Girling and Jess Gill are the links to this area. FPL learners need digital daily living skills (NHS App, banking, travel).",
+        "actions": [
+          {
+            "id": "action-fpl-m1-1",
+            "text": "Include FPL in FIP digital strategy. Connect to Learning Without Barriers work.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No meeting. FPL learners need digital daily living skills. Connect to Learning Without Barriers work.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Andy Girling and Jess Gill are the links to this area. FPL learners need digital daily living skills (NHS App, banking, travel).",
+    "m1Actions": "Include FPL in FIP digital strategy. Connect to Learning Without Barriers work.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Go and see them in practice to discuss how we can move the team forward, or learn from exceptional practice."
+  },
+  {
+    "code": "GMA",
+    "name": "Games, Media & Animation",
+    "group": "Arts, Creative & Media",
+    "campus": "Loxton",
+    "hoaName": "Gina Hele",
+    "dlName": "Dan Campbell (confirmed)",
+    "context": "",
+    "strengths": "Strong digital TLA already embedded. Gina is open to peer learning and external challenge.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 5,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 1)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 5
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-gma-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Gina confident digital foundations are strong. Invited Graeme in to explore and advise.\n\nStrengths noted: Strong digital TLA already embedded. Gina is open to peer learning and external challenge.\n\nAFIs: No form submitted. No formal Digital Lead from GMA identified. Practice not yet documented for wider sharing.",
+        "keyDiscussionPoints": "Gina confident digital foundations are strong. Invited Graeme in to explore and advise.",
+        "actions": [
+          {
+            "id": "action-gma-m1-1",
+            "text": "Arrange observation visit. Document and share GMA good practice. Identify Digital Lead from team.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-gma-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: WiFi connectivity issues (critical). Digital poverty (home laptop access gaps for some learners). Staff confidence varying in Adobe & specialist software.\n\nStrengths: Digitally rich area with excellent device range (Macs, 3D printers, tablets, VR headsets). Area is inherently digital. Multiple specialist tools embedded.\n\nAFIs & Next Steps: Phase 1: WiFi audit with IT. IT support needs analysis with Gina & Dan. Phase 2: Adobe suite staff training plan. Specialist software skills mapping.",
+        "keyDiscussionPoints": "WiFi connectivity issues (critical). Digital poverty (home laptop access gaps for some learners). Staff confidence varying in Adobe & specialist software.",
+        "actions": [
+          {
+            "id": "action-gma-m2-1",
+            "text": "Arrange observation visit. Document and share GMA good practice. Identify Digital Lead from team.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form submitted. No formal Digital Lead from GMA identified. Practice not yet documented for wider sharing.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Gina confident digital foundations are strong. Invited Graeme in to explore and advise.",
+    "m1Actions": "Arrange observation visit. Document and share GMA good practice. Identify Digital Lead from team.",
+    "m2KDP": "WiFi connectivity issues (critical). Digital poverty (home laptop access gaps for some learners). Staff confidence varying in Adobe & specialist software.",
+    "m2Strengths": "Digitally rich area with excellent device range (Macs, 3D printers, tablets, VR headsets). Area is inherently digital. Multiple specialist tools embedded.",
+    "m2AFIs": "Phase 1: WiFi audit with IT. IT support needs analysis with Gina & Dan. Phase 2: Adobe suite staff training plan. Specialist software skills mapping.",
+    "nextPlannedAction": "Arrange observation visit. Document and share GMA good practice. Identify Digital Lead from team."
+  },
+  {
+    "code": "HAC",
+    "name": "Health (inc. Health T-Level)",
+    "group": "Education & Health",
+    "campus": "HALSC",
+    "hoaName": "Dale Bond",
+    "dlName": "Dale Bond (confirmed)",
+    "context": "",
+    "strengths": "Dale Bond is engaged and has a clear understanding of how Graeme can support his team.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 1,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 5)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 1
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-hac-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Training already planned. Dale Bond identified as Digital Lead.\n\nStrengths noted: Dale Bond is engaged and has a clear understanding of how Graeme can support his team.\n\nAFIs: Team very inexperienced in TLA and digital assessment. All CPD areas rated High. Assessment and data use are priority gaps.",
+        "keyDiscussionPoints": "Training already planned. Dale Bond identified as Digital Lead.",
+        "actions": [
+          {
+            "id": "action-hac-m1-1",
+            "text": "Deliver planned training. Focus on effective Teams assessment. Coach team on multiple digital feedback formats.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Team very inexperienced in TLA and digital assessment. All CPD areas rated High. Assessment and data use are priority gaps.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Training already planned. Dale Bond identified as Digital Lead.",
+    "m1Actions": "Deliver planned training. Focus on effective Teams assessment. Coach team on multiple digital feedback formats.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Reach out to plan next phase of digital support."
+  },
+  {
+    "code": "HBH",
+    "name": "Hair, Beauty & Hospitality",
+    "group": "Education & Health",
+    "campus": "Knightstone",
+    "hoaName": "Jenna Ratcliffe",
+    "dlName": "Tracey White (confirmed)",
+    "context": "",
+    "strengths": "Strong embedded digital skills practice. Two Digital Leads identified. Good model for other vocational areas.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 5,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 1)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 5
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-hbh-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Digital Hours not needed as a formal requirement. Digital skills embedded in portfolios, social media, editing.\n\nStrengths noted: Strong embedded digital skills practice. Two Digital Leads identified. Good model for other vocational areas.\n\nAFIs: Digital hours not formally tracked. No explicit EDS mapping in BP.",
+        "keyDiscussionPoints": "Digital Hours not needed as a formal requirement. Digital skills embedded in portfolios, social media, editing.",
+        "actions": [
+          {
+            "id": "action-hbh-m1-1",
+            "text": "Support Tracey White as Digital Lead. Help Jenna map existing digital practice to EDS for BP purposes.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-hbh-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Software licensing gaps impacting teaching. Limited accessibility training & confidence. No current method for tracking social media analytics. iPad provision issues.\n\nStrengths: Staff confident and in good position to develop. Strong social media focus with industry relevance. Excellent portfolio systems (Padlet).\n\nAFIs & Next Steps: Meet with Jenna, DLs (White) to confirm priorities. Accessibility and Digital Support for Lasting Learning \u2014 teach-meet planning. iPad provision review.",
+        "keyDiscussionPoints": "Software licensing gaps impacting teaching. Limited accessibility training & confidence. No current method for tracking social media analytics. iPad provision issues.",
+        "actions": [
+          {
+            "id": "action-hbh-m2-1",
+            "text": "Reach out to discuss supporting observations and learning walks to see the impact of digital infrastructure on learning delivery.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Digital hours not formally tracked. No explicit EDS mapping in BP.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Digital Hours not needed as a formal requirement. Digital skills embedded in portfolios, social media, editing.",
+    "m1Actions": "Support Tracey White as Digital Lead. Help Jenna map existing digital practice to EDS for BP purposes.",
+    "m2KDP": "Software licensing gaps impacting teaching. Limited accessibility training & confidence. No current method for tracking social media analytics. iPad provision issues.",
+    "m2Strengths": "Staff confident and in good position to develop. Strong social media focus with industry relevance. Excellent portfolio systems (Padlet).",
+    "m2AFIs": "Meet with Jenna, DLs (White) to confirm priorities. Accessibility and Digital Support for Lasting Learning \u2014 teach-meet planning. iPad provision review.",
+    "nextPlannedAction": "Reach out to discuss supporting observations and learning walks to see the impact of digital infrastructure on learning delivery."
+  },
+  {
+    "code": "MAT",
+    "name": "Maths",
+    "group": "English & Maths",
+    "campus": "Multi",
+    "hoaName": "Libby Heath-Tavener",
+    "dlName": "Jed Randall, Joel Baylis, Denholm Wilcox, Diego Fanhe (confirmed)",
+    "context": "",
+    "strengths": "Potential Champions identified: Joel Baylis, Denholm Wilcox, Diego Fanhe. GoTeach Maths in active use.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-mat-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Meeting with Libby Heath-Tavener and Jason Clear. GoTeach Maths discussed. 100 hours within Maths. Century potential.\n\nStrengths noted: Potential Champions identified: Joel Baylis, Denholm Wilcox, Diego Fanhe. GoTeach Maths in active use.\n\nAFIs: No form submitted. 100 digital hours requirement needs Century or equivalent. Desmos used in GCSE exams \u2014 needs formal inclusion in BP.",
+        "keyDiscussionPoints": "Meeting with Libby Heath-Tavener and Jason Clear. GoTeach Maths discussed. 100 hours within Maths. Century potential.",
+        "actions": [
+          {
+            "id": "action-mat-m1-1",
+            "text": "1:1 with Libby re Century before May half-term. Confirm Desmos as formal digital tool in BP. Develop Maths Digital Champions network.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form submitted. 100 digital hours requirement needs Century or equivalent. Desmos used in GCSE exams \u2014 needs formal inclusion in BP.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Meeting with Libby Heath-Tavener and Jason Clear. GoTeach Maths discussed. 100 hours within Maths. Century potential.",
+    "m1Actions": "1:1 with Libby re Century before May half-term. Confirm Desmos as formal digital tool in BP. Develop Maths Digital Champions network.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": ""
+  },
+  {
+    "code": "PAP",
+    "name": "Performance & Production",
+    "group": "Arts, Creative & Media",
+    "campus": "Loxton",
+    "hoaName": "Chrissandra Boxley",
+    "dlName": "Chrystal Bliss & Eva Jarvis (confirmed)",
+    "context": "",
+    "strengths": "Digital self-tape skills are a baseline employability requirement in this area. See AGF notes.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 2,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 4)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 2
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-pap-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: See AGF \u2014 same HoA. Ronnie is Digital Lead for both areas.\n\nStrengths noted: Digital self-tape skills are a baseline employability requirement in this area. See AGF notes.\n\nAFIs: Digital practice not yet formally mapped to EDS. See AGF.",
+        "keyDiscussionPoints": "See AGF \u2014 same HoA. Ronnie is Digital Lead for both areas.",
+        "actions": [
+          {
+            "id": "action-pap-m1-1",
+            "text": "See AGF actions. Ensure PAP-specific digital tools (GarageBand, QLab, Spotlight) are captured in mapping.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Digital practice not yet formally mapped to EDS. See AGF.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "See AGF \u2014 same HoA. Ronnie is Digital Lead for both areas.",
+    "m1Actions": "See AGF actions. Ensure PAP-specific digital tools (GarageBand, QLab, Spotlight) are captured in mapping.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "See AGF actions. Ensure PAP-specific digital tools (GarageBand, QLab, Spotlight) are captured in mapping."
+  },
+  {
+    "code": "PRA",
+    "name": "Professional Apprenticeships",
+    "group": "Business & Professional",
+    "campus": "Multi",
+    "hoaName": "Georgina Hayden",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "Georgina is engaged and willing to involve her team in the process.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-pra-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Georgina will work with wider team to explore digital skills development.\n\nStrengths noted: Georgina is engaged and willing to involve her team in the process.\n\nAFIs: No form. No Digital Lead. EPA digital evidence requirements not yet mapped.",
+        "keyDiscussionPoints": "Georgina will work with wider team to explore digital skills development.",
+        "actions": [
+          {
+            "id": "action-pra-m1-1",
+            "text": "Follow up with Georgina. Map Smart Assessor EPA evidence to EDS categories. Identify Digital Lead.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form. No Digital Lead. EPA digital evidence requirements not yet mapped.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Georgina will work with wider team to explore digital skills development.",
+    "m1Actions": "Follow up with Georgina. Map Smart Assessor EPA evidence to EDS categories. Identify Digital Lead.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Follow up with Georgina. Map Smart Assessor EPA evidence to EDS categories. Identify Digital Lead."
+  },
+  {
+    "code": "PRE",
+    "name": "Employment Services (Pre-employment)",
+    "group": "Business & Professional",
+    "campus": "SWSC",
+    "hoaName": "Laura Taylor",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "Laura is positive and proactive. TurnItIn training already delivered as a Teach Meet \u2014 good practice.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-pre-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Laura was very positive. Invited Graeme to meet the team. Teams Teaching Room at SWSC and TurnItIn work needed.\n\nStrengths noted: Laura is positive and proactive. TurnItIn training already delivered as a Teach Meet \u2014 good practice.\n\nAFIs: No form. No Digital Lead. SWSC Teams Teaching Room needs attention.",
+        "keyDiscussionPoints": "Laura was very positive. Invited Graeme to meet the team. Teams Teaching Room at SWSC and TurnItIn work needed.",
+        "actions": [
+          {
+            "id": "action-pre-m1-1",
+            "text": "Book team visit at SWSC. Assess SWSC Teams Teaching Room. Identify Digital Lead. Follow up on TurnItIn integration in Teams.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form. No Digital Lead. SWSC Teams Teaching Room needs attention.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Laura was very positive. Invited Graeme to meet the team. Teams Teaching Room at SWSC and TurnItIn work needed.",
+    "m1Actions": "Book team visit at SWSC. Assess SWSC Teams Teaching Room. Identify Digital Lead. Follow up on TurnItIn integration in Teams.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Reach out for Teach-Meet on Teams Learning Environments and Accessibility."
+  },
+  {
+    "code": "PRS",
+    "name": "Professional Studies",
+    "group": "Business & Professional",
+    "campus": "Multi",
+    "hoaName": "Louise Perkins",
+    "dlName": "Ffion Rose",
+    "context": "",
+    "strengths": "",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-prs-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: No meeting held. Laura Link attended cross-area meeting but PRS not specifically covered.\n\nStrengths noted: Not recorded.\n\nAFIs: No meeting. No form. HE digital research skills gap relevant for this cohort.",
+        "keyDiscussionPoints": "No meeting held. Laura Link attended cross-area meeting but PRS not specifically covered.",
+        "actions": [
+          {
+            "id": "action-prs-m1-1",
+            "text": "Identify PRS HoA. Arrange meeting. Focus on academic digital research skills for HE/professional context.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-prs-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Digital strategy not clearly articulated. Limited AI/problem-solving integration. Employer constraints (paper preference). VLE/platform fragmentation.\n\nStrengths: Staff have general skills. VLE/Teams/Microsoft infrastructure in place.\n\nAFIs & Next Steps: Phase 1: Digital strategy co-creation with Louise. AI in apprenticeships curriculum design. Phase 2: 100% Century IA. Specialist skills mapping.",
+        "keyDiscussionPoints": "Digital strategy not clearly articulated. Limited AI/problem-solving integration. Employer constraints (paper preference). VLE/platform fragmentation.",
+        "actions": []
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No meeting. No form. HE digital research skills gap relevant for this cohort.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "No meeting held. Laura Link attended cross-area meeting but PRS not specifically covered.",
+    "m1Actions": "Identify PRS HoA. Arrange meeting. Focus on academic digital research skills for HE/professional context.",
+    "m2KDP": "Digital strategy not clearly articulated. Limited AI/problem-solving integration. Employer constraints (paper preference). VLE/platform fragmentation.",
+    "m2Strengths": "Staff have general skills. VLE/Teams/Microsoft infrastructure in place.",
+    "m2AFIs": "Phase 1: Digital strategy co-creation with Louise. AI in apprenticeships curriculum design. Phase 2: 100% Century IA. Specialist skills mapping.",
+    "nextPlannedAction": ""
+  },
+  {
+    "code": "PSF",
+    "name": "Public Services",
+    "group": "Sport & Public Services",
+    "campus": "Knightstone",
+    "hoaName": "David Beresford",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "David fully engaged and understands how digital fits in PSF curriculum. Drone/GPS industry context strong.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 1,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 5)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 1
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-psf-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Really positive. Totally gets the idea for working together. Drone use and GPS discussed.\n\nStrengths noted: David fully engaged and understands how digital fits in PSF curriculum. Drone/GPS industry context strong.\n\nAFIs: No form submitted. No Digital Lead identified. RAG 5 \u2014 significant CPD need despite positive attitude.",
+        "keyDiscussionPoints": "Really positive. Totally gets the idea for working together. Drone use and GPS discussed.",
+        "actions": [
+          {
+            "id": "action-psf-m1-1",
+            "text": "Complete survey form with David. Identify Digital Lead. Map drone/GPS and GIS tools to EDS categories.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-psf-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Message sent on Teams to arrange 2nd Meeting.\n\nStrengths: Not recorded.\n\nAFIs & Next Steps: Not recorded.",
+        "keyDiscussionPoints": "Message sent on Teams to arrange 2nd Meeting.",
+        "actions": [
+          {
+            "id": "action-psf-m2-1",
+            "text": "Dave needs 1:1 support on specifically what digital skills can be developed and how. He's keen to explore Drone and GPS data. Book a sit-down 1:1 session to flesh out the plans.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form submitted. No Digital Lead identified. RAG 5 \u2014 significant CPD need despite positive attitude.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Really positive. Totally gets the idea for working together. Drone use and GPS discussed.",
+    "m1Actions": "Complete survey form with David. Identify Digital Lead. Map drone/GPS and GIS tools to EDS categories.",
+    "m2KDP": "Message sent on Teams to arrange 2nd Meeting.",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Dave needs 1:1 support on specifically what digital skills can be developed and how. He's keen to explore Drone and GPS data. Book a sit-down 1:1 session to flesh out the plans."
+  },
+  {
+    "code": "SKB",
+    "name": "Skills Bootcamps (King's Trust)",
+    "group": "Community & External",
+    "campus": "Multi",
+    "hoaName": "Becky Morris & Candice Paisley",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "Becky is a connector \u2014 willing to share resources across her network. Proactive engagement.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 2,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 4)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 2
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-skb-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Becky was very engaged. Will share Forms link with others and Teams support page.\n\nStrengths noted: Becky is a connector \u2014 willing to share resources across her network. Proactive engagement.\n\nAFIs: No form yet. No Digital Lead.",
+        "keyDiscussionPoints": "Becky was very engaged. Will share Forms link with others and Teams support page.",
+        "actions": [
+          {
+            "id": "action-skb-m1-1",
+            "text": "Follow up for survey completion. Identify Digital Lead for SKB.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "No form yet. No Digital Lead.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Becky was very engaged. Will share Forms link with others and Teams support page.",
+    "m1Actions": "Follow up for survey completion. Identify Digital Lead for SKB.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Follow up for survey completion. Identify Digital Lead for SKB."
+  },
+  {
+    "code": "SMS",
+    "name": "Sixth Form",
+    "group": "Sixth Form",
+    "campus": "Loxton",
+    "hoaName": "Maria Miles",
+    "dlName": "Ethan Shi (confirmed)",
+    "context": "",
+    "strengths": "Digital Health Checks already in use. Ethan Shi identified as Digital Lead. Good existing awareness.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-sms-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Digital Hours not a key focus for Sixth Form. CVs, media editing, portfolios. Plan to support some tutors.\n\nStrengths noted: Digital Health Checks already in use. Ethan Shi identified as Digital Lead. Good existing awareness.\n\nAFIs: Digital Hours expectations unclear for SMS \u2014 needs clarification with Ben M and Neil D. Michael Foster needs support with Teams organisation.",
+        "keyDiscussionPoints": "Digital Hours not a key focus for Sixth Form. CVs, media editing, portfolios. Plan to support some tutors.",
+        "actions": [
+          {
+            "id": "action-sms-m1-1",
+            "text": "Clarify SMS digital hours expectations with Ben M and Neil D. Support Michael Foster on Teams organisation. Build on Ethan Shi's leadership.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      },
+      {
+        "id": "act-sms-m2",
+        "date": "2026-03-01",
+        "type": "meeting",
+        "notes": "Meeting 2 \u2014 Follow-up audit meeting.\n\nKey Discussion Points: Inconsistency in Teams usage across staff. Staff capability gaps with AI (early-stage training). Software gaps in computer science.\n\nStrengths: Good device access (PCs, editing software). Immersive Reader AT available. AI training initiated with staff. Data handling & AI literacy embedded in curriculum.\n\nAFIs & Next Steps: Meet with Maria & Ethan Shi to agree priorities. AI staff capability audit. Teams usage consistency review.",
+        "keyDiscussionPoints": "Inconsistency in Teams usage across staff. Staff capability gaps with AI (early-stage training). Software gaps in computer science.",
+        "actions": [
+          {
+            "id": "action-sms-m2-1",
+            "text": "Reach out for update on Power Automate systems.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Digital Hours expectations unclear for SMS \u2014 needs clarification with Ben M and Neil D. Michael Foster needs support with Teams organisation.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Digital Hours not a key focus for Sixth Form. CVs, media editing, portfolios. Plan to support some tutors.",
+    "m1Actions": "Clarify SMS digital hours expectations with Ben M and Neil D. Support Michael Foster on Teams organisation. Build on Ethan Shi's leadership.",
+    "m2KDP": "Inconsistency in Teams usage across staff. Staff capability gaps with AI (early-stage training). Software gaps in computer science.",
+    "m2Strengths": "Good device access (PCs, editing software). Immersive Reader AT available. AI training initiated with staff. Data handling & AI literacy embedded in curriculum.",
+    "m2AFIs": "Meet with Maria & Ethan Shi to agree priorities. AI staff capability audit. Teams usage consistency review.",
+    "nextPlannedAction": "Reach out for update on Power Automate systems."
+  },
+  {
+    "code": "SMX",
+    "name": "SOMAX (Offsite & Prison)",
+    "group": "Engineering & Construction",
+    "campus": "NSI",
+    "hoaName": "John Fowler",
+    "dlName": "John Fowler & Dave Evans",
+    "context": "",
+    "strengths": "See CTC. Foundational digital skills for post-release employment is a clear, purposeful priority.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 4,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 2)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 4
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-smx-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: See CTC. John manages both CTC and SMX. SOMAX has restricted digital access \u2014 foundational digital skills for post-release employment is the priority.\n\nStrengths noted: See CTC. Foundational digital skills for post-release employment is a clear, purposeful priority.\n\nAFIs: Digital access restrictions mean standard approaches don't apply. No specific SMX mapping yet.",
+        "keyDiscussionPoints": "See CTC. John manages both CTC and SMX. SOMAX has restricted digital access \u2014 foundational digital skills for post-release employment is the priority.",
+        "actions": [
+          {
+            "id": "action-smx-m1-1",
+            "text": "See CTC actions. Develop SOMAX-specific digital skills approach accounting for infrastructure restrictions.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Digital access restrictions mean standard approaches don't apply. No specific SMX mapping yet.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "See CTC. John manages both CTC and SMX. SOMAX has restricted digital access \u2014 foundational digital skills for post-release employment is the priority.",
+    "m1Actions": "See CTC actions. Develop SOMAX-specific digital skills approach accounting for infrastructure restrictions.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "See CTC actions. Develop SOMAX-specific digital skills approach accounting for infrastructure restrictions."
+  },
+  {
+    "code": "SPO",
+    "name": "Sport",
+    "group": "Sport & Public Services",
+    "campus": "Loxton",
+    "hoaName": "Dan Pratlett",
+    "dlName": "Sylvia Bertie (confirmed)",
+    "context": "",
+    "strengths": "Really clearly understands tech needs for his area and how this maps to industry standards.",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 5,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 1)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 5
+      }
+    },
+    "activityLog": [
+      {
+        "id": "act-spo-m1",
+        "date": "2026-01-01",
+        "type": "meeting",
+        "notes": "Meeting 1 \u2014 Initial HoA audit meeting.\n\nSummary: Covered: Accessibility and Support; Expected Teacher Standards against the Pyramid; Industry Digital Skills; Digital Lead identification. Really clearly understands tech needs for his area.\n\nStrengths noted: Really clearly understands tech needs for his area and how this maps to industry standards.\n\nAFIs: Frustrated with length of time it takes to make decisions, approve, or action anything \u2014 particularly on buying resources.",
+        "keyDiscussionPoints": "Covered: Accessibility and Support; Expected Teacher Standards against the Pyramid; Industry Digital Skills; Digital Lead identification. Really clearly understands tech needs for his area.",
+        "actions": [
+          {
+            "id": "action-spo-m1-1",
+            "text": "Share notes with Dan to confirm thoughts. This will fill the vast majority of the MS Forms associated with this meeting.",
+            "status": "not-started",
+            "afiPhaseId": null,
+            "who": "Graeme Wright",
+            "targetDate": "",
+            "completedDate": null
+          }
+        ]
+      }
+    ],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "Frustrated with length of time it takes to make decisions, approve, or action anything \u2014 particularly on buying resources.",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "Covered: Accessibility and Support; Expected Teacher Standards against the Pyramid; Industry Digital Skills; Digital Lead identification. Really clearly understands tech needs for his area.",
+    "m1Actions": "Share notes with Dan to confirm thoughts. This will fill the vast majority of the MS Forms associated with this meeting.",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": "Reach out to Sylvia Bertie about Digital Skills SoL and being the Digital Lead."
+  },
+  {
+    "code": "QUA",
+    "name": "Quality & Standards",
+    "group": "Other",
+    "campus": "Multi",
+    "hoaName": "Neil Davies",
+    "dlName": "TBC",
+    "context": "",
+    "strengths": "",
+    "aggregateStaffConfidence": null,
+    "aggregateHealthCheckScore": null,
+    "afiPhases": [],
+    "ragRatings": {
+      "history": [
+        {
+          "date": "2026-01-01",
+          "overall": 3,
+          "dimensions": {
+            "staffCapability": null,
+            "hoaLeadership": null,
+            "infrastructureDevices": null,
+            "digitalSkillsAssessment": null,
+            "curriculumIntegration": null,
+            "learnerReadiness": null,
+            "accessibilityHealth": null,
+            "digitalLeadEngagement": null
+          },
+          "notes": "Initial RAG from HoA Tracker (Meeting 1 baseline). Converted from original scale (original: 3)."
+        }
+      ],
+      "current": {
+        "staffCapability": null,
+        "hoaLeadership": null,
+        "infrastructureDevices": null,
+        "digitalSkillsAssessment": null,
+        "curriculumIntegration": null,
+        "learnerReadiness": null,
+        "accessibilityHealth": null,
+        "digitalLeadEngagement": null,
+        "overall": 3
+      }
+    },
+    "activityLog": [],
+    "interventions": [],
+    "generalDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "centuryAverageData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "industryDigitalSkills": {
+      "curriculumSkillsList": "",
+      "curriculumPlanningScore": null,
+      "learnerBaselineData": "",
+      "currentGaps": "",
+      "gapNarrowingPlan": "",
+      "progressTrackingPlan": "",
+      "progressData": ""
+    },
+    "staffDevelopment": {
+      "staffMembers": []
+    },
+    "healthChecks": {
+      "records": [],
+      "aggregateScore": null
+    },
+    "m1Summary": "",
+    "m1Actions": "",
+    "m2KDP": "",
+    "m2Strengths": "",
+    "m2AFIs": "",
+    "nextPlannedAction": ""
+  }
+]
