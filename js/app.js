@@ -49,7 +49,7 @@ DPC.App = {
     document.getElementById('btn-manual-save')?.addEventListener('click', () => {
       DPC.downloadJSON();
       DPC.App.markSaved();
-      DPC.showToast('Data downloaded — drag into your OneDrive DPC-Hub-Data folder');
+      DPC.App.showSaveReminder();
     });
 
     // Wire theme toggle
@@ -304,37 +304,491 @@ DPC.App = {
     });
   },
 
-  // ── LWB PLACEHOLDER ─────────────────────────────────────────────
+  // ── LEARNING WITHOUT BARRIERS ───────────────────────────────────
   renderLWB: function() {
     const el = document.getElementById('lwb-content');
     if (!el) return;
-    el.innerHTML = `<div class="empty-state">
-      <div class="empty-state__icon">◫</div>
-      <div class="empty-state__title">Learning Without Barriers</div>
-      <div class="empty-state__body">Activity log, actions, and framework tracking for Learning Without Barriers will be built in Phase 3.</div>
-    </div>`;
+    const activities = DPC.DB.learningWithoutBarriers?.activities || [];
+    const frameworkLink = DPC.DB.learningWithoutBarriers?.frameworkLink || '';
+
+    const types = ['meeting','training','coaching','co-planning','observation','resource-creation','research','other'];
+
+    const rows = activities.length === 0
+      ? `<tr><td colspan="5" style="text-align:center;padding:24px;color:var(--col-muted);font-size:.85rem">No LWB activities logged yet. Click + Add Activity to start.</td></tr>`
+      : [...activities].reverse().map(act => {
+          const openActions = (act.actions||[]).filter(a=>a.status!=='completed').length;
+          return `<tr onclick="DPC.App.toggleLWBRow('${act.id}')" style="cursor:pointer" title="Click to expand">
+            <td style="font-family:var(--font-mono);font-size:.75rem;white-space:nowrap">${act.date||'—'}</td>
+            <td><span class="badge badge-ns">${act.activityType||'—'}</span></td>
+            <td style="font-size:.82rem">${DPC.escHtml(act.whoInvolved||'—')}</td>
+            <td style="font-size:.82rem;color:var(--col-text-2)">${DPC.escHtml((act.impactOfActivity||'').slice(0,60))}</td>
+            <td>
+              ${openActions ? `<span class="badge badge-ip">${openActions} open</span>` : (act.actions?.length ? '<span class="badge badge-done">done</span>' : '—')}
+              <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();DPC.App.editLWBActivity('${act.id}')" type="button">✎</button>
+              <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();DPC.App.deleteLWBActivity('${act.id}')" type="button" aria-label="Delete">✕</button>
+            </td>
+          </tr>
+          <tr id="lwb-expand-${act.id}" style="display:none">
+            <td colspan="5" style="background:var(--col-surface-2);padding:14px 16px">
+              ${act.impactOfActivity ? `<div style="margin-bottom:10px"><strong style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--col-muted)">Impact</strong><div style="font-size:.875rem;margin-top:3px;white-space:pre-wrap">${DPC.escHtml(act.impactOfActivity)}</div></div>` : ''}
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+                <strong style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--col-muted)">Actions (${act.actions?.length||0})</strong>
+                <button class="btn btn-ghost btn-sm" onclick="DPC.App.addLWBAction('${act.id}')" type="button">+ Add Action</button>
+              </div>
+              ${(act.actions||[]).length === 0 ? '<div style="font-size:.8rem;color:var(--col-muted)">No actions yet.</div>'
+                : `<table class="table-base" style="font-size:.78rem"><thead><tr><th>Action</th><th>Deadline</th><th>Owner</th><th>Expected Impact</th><th>Status</th><th></th></tr></thead><tbody>
+                ${(act.actions||[]).map(a => `<tr>
+                  <td>${DPC.escHtml(a.text||'—')}</td>
+                  <td style="white-space:nowrap;font-family:var(--font-mono);font-size:.72rem">${a.deadline||'—'}</td>
+                  <td>${DPC.escHtml(a.ownership||'—')}</td>
+                  <td style="color:var(--col-muted)">${DPC.escHtml((a.expectedImpact||'').slice(0,50))}</td>
+                  <td><select aria-label="Status" style="font-size:.7rem;padding:2px 4px;border:1px solid var(--col-border);border-radius:var(--radius);background:var(--col-surface);color:var(--col-text)"
+                    onchange="DPC.App.updateLWBActionStatus('${act.id}','${a.id}',this.value)">
+                    <option value="not-started"${a.status==='not-started'?' selected':''}>Not Started</option>
+                    <option value="in-progress"${a.status==='in-progress'?' selected':''}>In Progress</option>
+                    <option value="completed"${a.status==='completed'?' selected':''}>Completed</option>
+                  </select></td>
+                  <td><button class="btn btn-ghost btn-sm" onclick="DPC.App.deleteLWBAction('${act.id}','${a.id}')" type="button" aria-label="Delete action">✕</button></td>
+                </tr>`).join('')}
+                </tbody></table>`}
+            </td>
+          </tr>`;
+        }).join('');
+
+    el.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px">
+        <div>
+          <div class="form-field" style="margin:0;flex-direction:row;align-items:center;gap:8px">
+            <label class="form-label" for="lwb-link" style="white-space:nowrap;margin:0">Framework link:</label>
+            <input class="form-input" id="lwb-link" type="url" value="${DPC.escHtml(frameworkLink)}"
+              placeholder="Paste LWB framework URL here…" style="max-width:360px"
+              onblur="DPC.App.saveLWBLink(this.value)">
+            ${frameworkLink ? `<a href="${DPC.escHtml(frameworkLink)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Open ↗</a>` : ''}
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="DPC.App.addLWBActivityModal()" type="button">+ Add Activity</button>
+      </div>
+      <div class="table-wrap">
+        <table class="table-base" aria-label="Learning Without Barriers activity log">
+          <thead><tr><th>Date</th><th>Type</th><th>Who Involved</th><th>Impact</th><th>Actions</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
   },
 
-  // ── INDIVIDUAL ACTIVITIES PLACEHOLDER ───────────────────────────
+  toggleLWBRow: function(id) {
+    const row = document.getElementById(`lwb-expand-${id}`);
+    if (row) row.style.display = row.style.display === 'none' ? '' : 'none';
+  },
+
+  saveLWBLink: function(url) {
+    if (!DPC.DB.learningWithoutBarriers) DPC.DB.learningWithoutBarriers = {frameworkLink:'',activities:[]};
+    DPC.DB.learningWithoutBarriers.frameworkLink = url;
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+  },
+
+  addLWBActivityModal: function(existingId) {
+    const existing = existingId ? (DPC.DB.learningWithoutBarriers?.activities||[]).find(a=>a.id===existingId) : null;
+    const types = ['meeting','training','coaching','co-planning','observation','resource-creation','research','other'];
+    const body = `
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="lwb-date">Date</label>
+          <input class="form-input" id="lwb-date" type="date" value="${existing?.date||new Date().toISOString().split('T')[0]}"></div>
+        <div class="form-field"><label class="form-label" for="lwb-type">Activity Type</label>
+          <select class="form-select" id="lwb-type">${types.map(t=>`<option value="${t}"${existing?.activityType===t?' selected':''}>${t.replace(/-/g,' ')}</option>`).join('')}</select>
+        </div>
+      </div>
+      <div class="form-field"><label class="form-label" for="lwb-who">Who Was Involved</label>
+        <input class="form-input" id="lwb-who" placeholder="Staff names, teams, external partners…" value="${DPC.escHtml(existing?.whoInvolved||'')}"></div>
+      <div class="form-field"><label class="form-label" for="lwb-impact">Impact of Activity</label>
+        <textarea class="form-textarea" id="lwb-impact" rows="4" placeholder="What changed? What improved? What was the outcome?">${DPC.escHtml(existing?.impactOfActivity||'')}</textarea></div>`;
+    DPC.App.openModal(existing ? 'Edit LWB Activity' : 'Add LWB Activity', body, () => {
+      if (!DPC.DB.learningWithoutBarriers) DPC.DB.learningWithoutBarriers = {frameworkLink:'',activities:[]};
+      const act = {
+        id: existing?.id || DPC.uid(),
+        date: document.getElementById('lwb-date')?.value||'',
+        activityType: document.getElementById('lwb-type')?.value||'meeting',
+        whoInvolved: document.getElementById('lwb-who')?.value||'',
+        impactOfActivity: document.getElementById('lwb-impact')?.value||'',
+        actions: existing?.actions||[]
+      };
+      const arr = DPC.DB.learningWithoutBarriers.activities;
+      const idx = arr.findIndex(a=>a.id===act.id);
+      if (idx>=0) arr[idx]=act; else arr.push(act);
+      DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+      DPC.App.renderLWB();
+      DPC.showToast(existing?'Activity updated':'Activity logged');
+    });
+  },
+
+  editLWBActivity: function(id) { DPC.App.addLWBActivityModal(id); },
+
+  deleteLWBActivity: function(id) {
+    if (!confirm('Delete this LWB activity?')) return;
+    DPC.DB.learningWithoutBarriers.activities = DPC.DB.learningWithoutBarriers.activities.filter(a=>a.id!==id);
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+    DPC.App.renderLWB();
+  },
+
+  addLWBAction: function(actId) {
+    const body = `
+      <div class="form-field"><label class="form-label" for="la-text">Action</label>
+        <input class="form-input" id="la-text" placeholder="What needs to happen?"></div>
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="la-deadline">Deadline</label>
+          <input class="form-input" id="la-deadline" type="date"></div>
+        <div class="form-field"><label class="form-label" for="la-owner">Ownership</label>
+          <input class="form-input" id="la-owner" value="Graeme Wright"></div>
+      </div>
+      <div class="form-field"><label class="form-label" for="la-impact">Expected Impact</label>
+        <textarea class="form-textarea" id="la-impact" rows="2"></textarea></div>`;
+    DPC.App.openModal('Add LWB Action', body, () => {
+      const act = DPC.DB.learningWithoutBarriers?.activities?.find(a=>a.id===actId);
+      if (!act) return;
+      if (!act.actions) act.actions = [];
+      act.actions.push({id:DPC.uid(),text:document.getElementById('la-text')?.value||'',deadline:document.getElementById('la-deadline')?.value||'',ownership:document.getElementById('la-owner')?.value||'',expectedImpact:document.getElementById('la-impact')?.value||'',status:'not-started'});
+      DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+      DPC.App.renderLWB();
+    });
+  },
+
+  updateLWBActionStatus: function(actId, actionId, status) {
+    const act = DPC.DB.learningWithoutBarriers?.activities?.find(a=>a.id===actId);
+    const action = act?.actions?.find(a=>a.id===actionId);
+    if (action) { action.status = status; DPC.saveToLocalStorage(); DPC.App.markUnsaved(); }
+  },
+
+  deleteLWBAction: function(actId, actionId) {
+    const act = DPC.DB.learningWithoutBarriers?.activities?.find(a=>a.id===actId);
+    if (!act) return;
+    act.actions = act.actions.filter(a=>a.id!==actionId);
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+    DPC.App.renderLWB();
+  },
+
+  // ── INDIVIDUAL ACTIVITIES ────────────────────────────────────────
   renderIndividualActivities: function() {
     const el = document.getElementById('individual-activities-content');
     if (!el) return;
-    el.innerHTML = `<div class="empty-state">
-      <div class="empty-state__icon">◉</div>
-      <div class="empty-state__title">Individual Activities</div>
-      <div class="empty-state__body">1:1 coaching, teach-meets, class support sessions, and other individual activities will be tracked here in Phase 3.</div>
-    </div>`;
+    const activities = DPC.DB.individualActivities || [];
+    const types = ['coaching','teach-meet','class-support','planning','meeting','observation','other'];
+    const campuses = [...new Set(DPC.DB.areas.map(a=>a.campus).filter(Boolean))].sort();
+
+    // Filters
+    const filterType   = el._filterType   || '';
+    const filterArea   = el._filterArea   || '';
+    const filterSearch = el._filterSearch || '';
+
+    let filtered = [...activities].reverse();
+    if (filterType)   filtered = filtered.filter(a => a.type === filterType);
+    if (filterArea)   filtered = filtered.filter(a => a.areaCode === filterArea);
+    if (filterSearch) { const q = filterSearch.toLowerCase(); filtered = filtered.filter(a => JSON.stringify(a).toLowerCase().includes(q)); }
+
+    const rows = filtered.length === 0
+      ? `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--col-muted);font-size:.85rem">No activities yet${filterType||filterArea||filterSearch?' matching these filters':''}. Click + Log Activity to add the first.</td></tr>`
+      : filtered.map(act => `<tr onclick="DPC.App.toggleIARow('${act.id}')" style="cursor:pointer">
+          <td style="font-family:var(--font-mono);font-size:.75rem;white-space:nowrap">${act.date||'—'}</td>
+          <td><span class="badge badge-ns">${act.type||'—'}</span></td>
+          <td style="font-size:.82rem">${DPC.escHtml(act.staffNameOrOrganisation||'—')}</td>
+          <td style="font-size:.78rem;color:var(--col-muted)">${act.areaCode ? DPC.escHtml(act.areaCode) : '—'}</td>
+          <td style="font-size:.82rem">${DPC.escHtml((act.title||'').slice(0,50))}</td>
+          <td style="font-size:.78rem;color:var(--col-muted)">${DPC.escHtml((act.impact||'').slice(0,60))}</td>
+          <td class="actions-col">
+            <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();DPC.App.editIAActivity('${act.id}')" type="button">✎</button>
+            <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();DPC.App.deleteIAActivity('${act.id}')" type="button" aria-label="Delete">✕</button>
+          </td>
+        </tr>
+        <tr id="ia-expand-${act.id}" style="display:none">
+          <td colspan="7" style="background:var(--col-surface-2);padding:14px 16px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              ${act.details?`<div><strong style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--col-muted)">Details</strong><div style="font-size:.875rem;margin-top:3px;white-space:pre-wrap">${DPC.escHtml(act.details)}</div></div>`:''}
+              ${act.furtherAction?`<div><strong style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--col-muted)">Further Action</strong><div style="font-size:.875rem;margin-top:3px">${DPC.escHtml(act.furtherAction)}</div></div>`:''}
+              ${act.expectedImpact?`<div><strong style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--col-muted)">Expected Impact</strong><div style="font-size:.875rem;margin-top:3px">${DPC.escHtml(act.expectedImpact)}</div></div>`:''}
+              ${act.deadline?`<div><strong style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--col-muted)">Deadline</strong><div style="font-size:.875rem;margin-top:3px">${act.deadline}</div></div>`:''}
+            </div>
+          </td>
+        </tr>`).join('');
+
+    el.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px">
+        <div class="filter-bar" style="flex:1;margin:0">
+          <input type="search" class="filter-select" id="ia-search" placeholder="Search…" style="min-width:180px" aria-label="Search activities" value="${DPC.escHtml(filterSearch)}"
+            oninput="DPC.App._iaFilter(this.closest('section')||document.getElementById('section-individual-activities'))">
+          <select class="filter-select" id="ia-type" aria-label="Filter by type" onchange="DPC.App._iaFilter(this.closest('section')||document.getElementById('section-individual-activities'))">
+            <option value="">All types</option>
+            ${types.map(t=>`<option value="${t}"${filterType===t?' selected':''}>${t.replace(/-/g,' ')}</option>`).join('')}
+          </select>
+          <select class="filter-select" id="ia-area" aria-label="Filter by area" onchange="DPC.App._iaFilter(this.closest('section')||document.getElementById('section-individual-activities'))">
+            <option value="">All areas</option>
+            ${DPC.DB.areas.map(a=>`<option value="${a.code}"${filterArea===a.code?' selected':''}>${a.code} · ${a.name}</option>`).join('')}
+          </select>
+        </div>
+        <button class="btn btn-primary" onclick="DPC.App.addIAActivityModal()" type="button">+ Log Activity</button>
+      </div>
+      <div style="font-size:.78rem;color:var(--col-muted);margin-bottom:8px">${filtered.length} of ${activities.length} activities${filtered.length<activities.length?' (filtered)':''}</div>
+      <div class="table-wrap">
+        <table class="table-base" aria-label="Individual activities log">
+          <thead><tr><th>Date</th><th>Type</th><th>Staff / Organisation</th><th>Area</th><th>Title</th><th>Impact</th><th></th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
   },
 
-  // ── MY CPD PLACEHOLDER ───────────────────────────────────────────
+  _iaFilter: function(section) {
+    const el = document.getElementById('individual-activities-content');
+    if (!el) return;
+    el._filterSearch = document.getElementById('ia-search')?.value || '';
+    el._filterType   = document.getElementById('ia-type')?.value   || '';
+    el._filterArea   = document.getElementById('ia-area')?.value   || '';
+    DPC.App.renderIndividualActivities();
+  },
+
+  toggleIARow: function(id) {
+    const row = document.getElementById(`ia-expand-${id}`);
+    if (row) row.style.display = row.style.display === 'none' ? '' : 'none';
+  },
+
+  addIAActivityModal: function(existingId) {
+    const existing = existingId ? (DPC.DB.individualActivities||[]).find(a=>a.id===existingId) : null;
+    const types = ['coaching','teach-meet','class-support','planning','meeting','observation','other'];
+    const body = `
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="ia-date">Date</label>
+          <input class="form-input" id="ia-date" type="date" value="${existing?.date||new Date().toISOString().split('T')[0]}"></div>
+        <div class="form-field"><label class="form-label" for="ia-type2">Type</label>
+          <select class="form-select" id="ia-type2">${types.map(t=>`<option value="${t}"${existing?.type===t?' selected':''}>${t.replace(/-/g,' ')}</option>`).join('')}</select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="ia-name">Staff Name / Organisation</label>
+          <input class="form-input" id="ia-name" value="${DPC.escHtml(existing?.staffNameOrOrganisation||'')}"></div>
+        <div class="form-field"><label class="form-label" for="ia-area2">Area (optional)</label>
+          <select class="form-select" id="ia-area2">
+            <option value="">— Cross-college —</option>
+            ${DPC.DB.areas.map(a=>`<option value="${a.code}"${existing?.areaCode===a.code?' selected':''}>${a.code} · ${a.name}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      <div class="form-field"><label class="form-label" for="ia-title">Title / Brief Description</label>
+        <input class="form-input" id="ia-title" value="${DPC.escHtml(existing?.title||'')}" placeholder="e.g. Teams environment coaching session"></div>
+      <div class="form-field"><label class="form-label" for="ia-details">Full Details</label>
+        <textarea class="form-textarea" id="ia-details" rows="3">${DPC.escHtml(existing?.details||'')}</textarea></div>
+      <div class="form-field"><label class="form-label" for="ia-impact">Impact</label>
+        <textarea class="form-textarea" id="ia-impact" rows="2">${DPC.escHtml(existing?.impact||'')}</textarea></div>
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="ia-further">Further Action Needed</label>
+          <input class="form-input" id="ia-further" value="${DPC.escHtml(existing?.furtherAction||'')}"></div>
+        <div class="form-field"><label class="form-label" for="ia-deadline2">Deadline</label>
+          <input class="form-input" id="ia-deadline2" type="date" value="${existing?.deadline||''}"></div>
+      </div>
+      <div class="form-field"><label class="form-label" for="ia-exp-impact">Expected Impact</label>
+        <textarea class="form-textarea" id="ia-exp-impact" rows="2">${DPC.escHtml(existing?.expectedImpact||'')}</textarea></div>`;
+    DPC.App.openModal(existing?'Edit Activity':'Log Individual Activity', body, () => {
+      const act = {
+        id: existing?.id||DPC.uid(),
+        date: document.getElementById('ia-date')?.value||'',
+        type: document.getElementById('ia-type2')?.value||'coaching',
+        staffNameOrOrganisation: document.getElementById('ia-name')?.value||'',
+        areaCode: document.getElementById('ia-area2')?.value||null,
+        campus: null,
+        title: document.getElementById('ia-title')?.value||'',
+        details: document.getElementById('ia-details')?.value||'',
+        impact: document.getElementById('ia-impact')?.value||'',
+        furtherAction: document.getElementById('ia-further')?.value||'',
+        deadline: document.getElementById('ia-deadline2')?.value||'',
+        expectedImpact: document.getElementById('ia-exp-impact')?.value||''
+      };
+      if (!DPC.DB.individualActivities) DPC.DB.individualActivities = [];
+      const idx = DPC.DB.individualActivities.findIndex(a=>a.id===act.id);
+      if (idx>=0) DPC.DB.individualActivities[idx]=act; else DPC.DB.individualActivities.unshift(act);
+      DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+      DPC.App.renderIndividualActivities();
+      DPC.showToast(existing?'Activity updated':'Activity logged');
+    });
+  },
+
+  editIAActivity: function(id) { DPC.App.addIAActivityModal(id); },
+
+  deleteIAActivity: function(id) {
+    if (!confirm('Delete this activity?')) return;
+    DPC.DB.individualActivities = DPC.DB.individualActivities.filter(a=>a.id!==id);
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+    DPC.App.renderIndividualActivities();
+  },
+
+  // ── MY CPD ────────────────────────────────────────────────────────
   renderMyCPD: function() {
     const el = document.getElementById('my-cpd-content');
     if (!el) return;
-    el.innerHTML = `<div class="empty-state">
-      <div class="empty-state__icon">◬</div>
-      <div class="empty-state__title">My CPD</div>
-      <div class="empty-state__body">External CPD events, cost-effectiveness ratings, key takeaways, and actions will be tracked here in Phase 3.</div>
-    </div>`;
+    const events = DPC.DB.myCPD || [];
+
+    const cards = events.length === 0
+      ? `<div class="empty-state"><div class="empty-state__icon">◷</div><div class="empty-state__title">No CPD events logged yet</div><div class="empty-state__body">Click + Add CPD Event to log your first.</div></div>`
+      : [...events].reverse().map(ev => {
+          const stars = ev.costEffectivenessRating || 0;
+          const starStr = '★'.repeat(stars) + '☆'.repeat(5-stars);
+          const openActs = (ev.actions||[]).filter(a=>a.status!=='completed').length;
+          return `<div class="intervention-card" style="margin-bottom:12px">
+            <button class="intervention-card-header" type="button"
+              onclick="DPC.App.toggleCPDCard('${ev.id}')"
+              aria-expanded="false" aria-controls="cpd-body-${ev.id}">
+              <div style="flex:1;text-align:left">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                  <strong style="font-size:.9rem">${DPC.escHtml(ev.title||'Untitled')}</strong>
+                  <span style="font-family:var(--font-mono);font-size:.72rem;color:var(--col-muted)">${ev.date||'—'}</span>
+                  ${ev.location?`<span class="badge badge-ns">${DPC.escHtml(ev.location)}</span>`:''}
+                  <span style="color:#f59e0b;font-size:.85rem" title="Cost-effectiveness: ${stars}/5">${starStr}</span>
+                  ${openActs?`<span class="badge badge-ip">${openActs} open action${openActs>1?'s':''}</span>`:''}
+                </div>
+                ${ev.keyTakeaways?`<div style="font-size:.78rem;color:var(--col-muted);margin-top:4px">${DPC.escHtml(ev.keyTakeaways.slice(0,100))}</div>`:''}
+              </div>
+              <div style="display:flex;gap:6px;flex-shrink:0">
+                <button class="btn btn-ghost btn-sm" type="button" onclick="event.stopPropagation();DPC.App.editCPDEvent('${ev.id}')">✎</button>
+                <button class="btn btn-ghost btn-sm" type="button" onclick="event.stopPropagation();DPC.App.deleteCPDEvent('${ev.id}')" aria-label="Delete">✕</button>
+                <span style="color:var(--col-muted);font-size:.72rem;align-self:center" aria-hidden="true">▾</span>
+              </div>
+            </button>
+            <div class="intervention-card-body" id="cpd-body-${ev.id}">
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px">
+                ${ev.timeInvestmentHours!=null?`<div><div class="intervention-field-label">Time</div><div class="intervention-field-value">${ev.timeInvestmentHours}h</div></div>`:''}
+                ${ev.eventCost!=null?`<div><div class="intervention-field-label">Event Cost</div><div class="intervention-field-value">£${ev.eventCost}</div></div>`:''}
+                ${ev.travelCost!=null?`<div><div class="intervention-field-label">Travel Cost</div><div class="intervention-field-value">£${ev.travelCost}</div></div>`:''}
+              </div>
+              ${ev.keyTakeaways?`<div class="intervention-field"><div class="intervention-field-label">Key Takeaways</div><div class="intervention-field-value">${DPC.escHtml(ev.keyTakeaways)}</div></div>`:''}
+              ${ev.overallThoughts?`<div class="intervention-field"><div class="intervention-field-label">Overall Thoughts</div><div class="intervention-field-value">${DPC.escHtml(ev.overallThoughts)}</div></div>`:''}
+              ${(ev.resourceLinks||[]).length?`<div class="intervention-field"><div class="intervention-field-label">Resource Links</div>${ev.resourceLinks.map(l=>`<div><a href="${DPC.escHtml(l)}" target="_blank" rel="noopener" style="font-size:.82rem">${DPC.escHtml(l)}</a></div>`).join('')}</div>`:''}
+              <!-- Actions -->
+              <div style="margin-top:12px">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+                  <strong style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--col-muted)">Actions (${ev.actions?.length||0})</strong>
+                  <button class="btn btn-ghost btn-sm" type="button" onclick="DPC.App.addCPDAction('${ev.id}')">+ Add Action</button>
+                </div>
+                ${(ev.actions||[]).length===0?'<div style="font-size:.8rem;color:var(--col-muted)">No actions yet.</div>'
+                  :`<table class="table-base" style="font-size:.78rem"><thead><tr><th>Action</th><th>Expected Impact</th><th>Status</th><th></th></tr></thead><tbody>
+                  ${(ev.actions||[]).map(a=>`<tr>
+                    <td>${DPC.escHtml(a.text||'—')}</td>
+                    <td style="color:var(--col-muted)">${DPC.escHtml((a.expectedImpact||'').slice(0,60))}</td>
+                    <td><select aria-label="Status" style="font-size:.7rem;padding:2px 4px;border:1px solid var(--col-border);border-radius:var(--radius);background:var(--col-surface);color:var(--col-text)"
+                      onchange="DPC.App.updateCPDActionStatus('${ev.id}','${a.id}',this.value)">
+                      <option value="not-started"${a.status==='not-started'?' selected':''}>Not Started</option>
+                      <option value="in-progress"${a.status==='in-progress'?' selected':''}>In Progress</option>
+                      <option value="completed"${a.status==='completed'?' selected':''}>Completed</option>
+                    </select></td>
+                    <td><button class="btn btn-ghost btn-sm" type="button" onclick="DPC.App.deleteCPDAction('${ev.id}','${a.id}')" aria-label="Delete">✕</button></td>
+                  </tr>`).join('')}
+                  </tbody></table>`}
+              </div>
+            </div>
+          </div>`;
+        }).join('');
+
+    el.innerHTML = `
+      <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+        <button class="btn btn-primary" onclick="DPC.App.addCPDEventModal()" type="button">+ Add CPD Event</button>
+      </div>
+      <div>${cards}</div>`;
+  },
+
+  toggleCPDCard: function(id) {
+    const body = document.getElementById(`cpd-body-${id}`);
+    const btn  = body?.previousElementSibling;
+    if (!body) return;
+    const open = body.classList.toggle('open');
+    if (btn) btn.setAttribute('aria-expanded', open);
+  },
+
+  addCPDEventModal: function(existingId) {
+    const existing = existingId ? (DPC.DB.myCPD||[]).find(e=>e.id===existingId) : null;
+    const body = `
+      <div class="form-field"><label class="form-label" for="cpd-title">Event Title</label>
+        <input class="form-input" id="cpd-title" value="${DPC.escHtml(existing?.title||'')}" placeholder="e.g. Jisc Digital Leaders Conference 2026"></div>
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="cpd-date">Date</label>
+          <input class="form-input" id="cpd-date" type="date" value="${existing?.date||new Date().toISOString().split('T')[0]}"></div>
+        <div class="form-field"><label class="form-label" for="cpd-location">Location</label>
+          <input class="form-input" id="cpd-location" value="${DPC.escHtml(existing?.location||'')}" placeholder="Venue or Online"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="cpd-hours">Time Investment (hours)</label>
+          <input class="form-input" id="cpd-hours" type="number" min="0" step="0.5" value="${existing?.timeInvestmentHours??''}"></div>
+        <div class="form-field"><label class="form-label" for="cpd-cost">Event Cost (£)</label>
+          <input class="form-input" id="cpd-cost" type="number" min="0" step="0.01" value="${existing?.eventCost??''}"></div>
+        <div class="form-field"><label class="form-label" for="cpd-travel">Travel Cost (£)</label>
+          <input class="form-input" id="cpd-travel" type="number" min="0" step="0.01" value="${existing?.travelCost??''}"></div>
+      </div>
+      <div class="form-field"><label class="form-label" for="cpd-stars">Cost-Effectiveness Rating (1–5 ★)</label>
+        <select class="form-select" id="cpd-stars">
+          <option value="">— Not rated —</option>
+          ${[1,2,3,4,5].map(n=>`<option value="${n}"${existing?.costEffectivenessRating===n?' selected':''}>${'★'.repeat(n)}${'☆'.repeat(5-n)} (${n}/5)</option>`).join('')}
+        </select>
+      </div>
+      <div class="form-field"><label class="form-label" for="cpd-takeaways">Key Takeaways</label>
+        <textarea class="form-textarea" id="cpd-takeaways" rows="4">${DPC.escHtml(existing?.keyTakeaways||'')}</textarea></div>
+      <div class="form-field"><label class="form-label" for="cpd-thoughts">Overall Thoughts</label>
+        <textarea class="form-textarea" id="cpd-thoughts" rows="3">${DPC.escHtml(existing?.overallThoughts||'')}</textarea></div>
+      <div class="form-field"><label class="form-label" for="cpd-links">Resource Links (one per line)</label>
+        <textarea class="form-textarea" id="cpd-links" rows="2">${DPC.escHtml((existing?.resourceLinks||[]).join('\n'))}</textarea></div>`;
+    DPC.App.openModal(existing?'Edit CPD Event':'Add CPD Event', body, () => {
+      const ev = {
+        id: existing?.id||DPC.uid(),
+        title:       document.getElementById('cpd-title')?.value||'',
+        date:        document.getElementById('cpd-date')?.value||'',
+        location:    document.getElementById('cpd-location')?.value||'',
+        timeInvestmentHours: parseFloat(document.getElementById('cpd-hours')?.value)||null,
+        eventCost:   parseFloat(document.getElementById('cpd-cost')?.value)||null,
+        travelCost:  parseFloat(document.getElementById('cpd-travel')?.value)||null,
+        costEffectivenessRating: parseInt(document.getElementById('cpd-stars')?.value)||null,
+        keyTakeaways:  document.getElementById('cpd-takeaways')?.value||'',
+        overallThoughts: document.getElementById('cpd-thoughts')?.value||'',
+        resourceLinks: (document.getElementById('cpd-links')?.value||'').split('\n').map(l=>l.trim()).filter(Boolean),
+        actions: existing?.actions||[]
+      };
+      if (!DPC.DB.myCPD) DPC.DB.myCPD = [];
+      const idx = DPC.DB.myCPD.findIndex(e=>e.id===ev.id);
+      if (idx>=0) DPC.DB.myCPD[idx]=ev; else DPC.DB.myCPD.unshift(ev);
+      DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+      DPC.App.renderMyCPD();
+      DPC.showToast(existing?'CPD event updated':'CPD event logged');
+    });
+  },
+
+  editCPDEvent:   function(id) { DPC.App.addCPDEventModal(id); },
+
+  deleteCPDEvent: function(id) {
+    if (!confirm('Delete this CPD event?')) return;
+    DPC.DB.myCPD = DPC.DB.myCPD.filter(e=>e.id!==id);
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+    DPC.App.renderMyCPD();
+  },
+
+  addCPDAction: function(evId) {
+    const body = `
+      <div class="form-field"><label class="form-label" for="ca-text">Action</label>
+        <input class="form-input" id="ca-text" placeholder="What will you do with this learning?"></div>
+      <div class="form-field"><label class="form-label" for="ca-impact">Expected Impact</label>
+        <textarea class="form-textarea" id="ca-impact" rows="2"></textarea></div>`;
+    DPC.App.openModal('Add CPD Action', body, () => {
+      const ev = DPC.DB.myCPD?.find(e=>e.id===evId);
+      if (!ev) return;
+      if (!ev.actions) ev.actions = [];
+      ev.actions.push({id:DPC.uid(),text:document.getElementById('ca-text')?.value||'',expectedImpact:document.getElementById('ca-impact')?.value||'',status:'not-started',completedDate:null});
+      DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+      DPC.App.renderMyCPD();
+    });
+  },
+
+  updateCPDActionStatus: function(evId, actionId, status) {
+    const ev = DPC.DB.myCPD?.find(e=>e.id===evId);
+    const action = ev?.actions?.find(a=>a.id===actionId);
+    if (action) { action.status=status; action.completedDate=status==='completed'?new Date().toISOString().split('T')[0]:null; DPC.saveToLocalStorage(); DPC.App.markUnsaved(); }
+  },
+
+  deleteCPDAction: function(evId, actionId) {
+    const ev = DPC.DB.myCPD?.find(e=>e.id===evId);
+    if (!ev) return;
+    ev.actions = ev.actions.filter(a=>a.id!==actionId);
+    DPC.saveToLocalStorage(); DPC.App.markUnsaved();
+    DPC.App.renderMyCPD();
   },
 
   // ── MODAL ────────────────────────────────────────────────────────
@@ -398,15 +852,19 @@ DPC.App = {
             <button class="btn btn-secondary" onclick="DPC.App.importJSON()" type="button">⬆ Import dpc-data.json</button>
             <button class="btn btn-danger" onclick="DPC.App.clearData()" type="button">✕ Clear All Data</button>
           </div>
-          <p class="text-xs text-muted mt-12">After downloading, drag the file into your OneDrive → DPC-Hub-Data folder to sync across devices.</p>
+          <p class="text-xs text-muted mt-12">
+            After downloading, save <code>dpc-data.json</code> to your backup folder
+            (e.g. <code>Documents/DPC-Hub-Data/</code>). Your live data always stays in this browser.
+            To restore on a new machine or after clearing your browser, use Import below.
+          </p>
         </div>
       </div>
-      <div class="card">
-        <div class="card-header"><span class="card-title">OneDrive Sync</span></div>
+      <div class="card" style="margin-top:16px">
+        <div class="card-header"><span class="card-title">About This Build</span></div>
         <div class="card-body">
-          <p class="text-sm mb-12">Paste your OneDrive shareable link here. After saving, push to GitHub.</p>
-          <p class="text-xs text-muted mb-12">Current URL in code: ${ONEDRIVE_URL ? '<span style="color:var(--status-done-text)">✓ Configured</span>' : '<span style="color:var(--rag-2)">⚠ Not configured — edit ONEDRIVE_URL in js/app.js</span>'}</p>
-          <p class="text-xs text-muted">To configure: Open js/app.js → find <code>ONEDRIVE_URL = ''</code> → paste your OneDrive share URL → push to GitHub.</p>
+          <p class="text-sm text-muted mb-8">DPC Impact Hub · Weston College Group · Digital Pedagogy Coach · 2025–27 Pilot</p>
+          <p class="text-sm text-muted mb-8">Phase 3 complete · WCAG 2.2 AA · Schema v2.0</p>
+          <p class="text-sm text-muted">Last saved: <strong id="s-last-saved">—</strong></p>
         </div>
       </div>`;
   },
@@ -445,6 +903,38 @@ DPC.App = {
     localStorage.removeItem('dpc-impact-hub-v2');
     DPC.showToast('Local data cleared — page will reload');
     setTimeout(() => location.reload(), 1500);
+  },
+
+  // ── SAVE REMINDER ─────────────────────────────────────────────
+  showSaveReminder: function() {
+    // Show a persistent banner reminding where to save the file
+    const existing = document.getElementById('save-reminder-banner');
+    if (existing) existing.remove();
+
+    const banner = document.createElement('div');
+    banner.id = 'save-reminder-banner';
+    banner.setAttribute('role', 'status');
+    banner.setAttribute('aria-live', 'polite');
+    banner.style.cssText = `
+      position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+      background:var(--col-text);color:var(--col-surface);
+      padding:14px 20px;border-radius:var(--radius-lg);
+      box-shadow:var(--shadow-md);z-index:700;
+      font-size:.875rem;line-height:1.5;
+      display:flex;align-items:center;gap:16px;
+      max-width:520px;width:calc(100vw - 40px);
+    `;
+    banner.innerHTML = `
+      <span>
+        <strong>dpc-data.json downloaded.</strong><br>
+        Drag it into <code style="background:rgba(255,255,255,.15);padding:1px 5px;border-radius:3px">Documents/DPC-Hub-Data/</code> to keep your backup up to date.
+      </span>
+      <button type="button" onclick="this.parentElement.remove()" aria-label="Dismiss"
+        style="background:rgba(255,255,255,.15);border:none;color:inherit;padding:4px 10px;border-radius:var(--radius);cursor:pointer;flex-shrink:0;font-size:.85rem">
+        Got it
+      </button>`;
+    document.body.appendChild(banner);
+    setTimeout(() => banner?.remove(), 8000);
   }
 };
 
