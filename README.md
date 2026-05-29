@@ -1,6 +1,6 @@
 # DPC Impact Hub
 
-**Weston College Group · Digital Pedagogy Coach · 2025–27 Pilot**
+**Weston College Group · Digital Pedagogy Coach**
 
 A password-protected, browser-based tracking tool for the Digital Pedagogy Coach programme.
 Hosted on GitHub Pages. All live data stays in your browser — nothing sensitive is stored in this repository.
