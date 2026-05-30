@@ -151,55 +151,52 @@ DPC.RAG = {
               ${subLabels.map((subLabel, subIdx) => {
                 const subScore = dimData.scores[subIdx] ?? null;
                 const subColor = subScore ? (scale[String(subScore)]?.color || 'var(--col-muted)') : null;
-                const subLabel2 = subScore ? (scale[String(subScore)]?.label || '') : '—';
 
-                return `<tr style="background:${subScore ? scale[String(subScore)]?.color+'08' : 'var(--col-surface)'}">
-                  <!-- Sub-criterion label + expand -->
-                  <td style="padding:10px 12px;border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);vertical-align:top">
-                    <div style="font-size:.78rem;font-weight:600;color:var(--col-text-2);margin-bottom:4px">${subLabel}</div>
-                    <button type="button"
-                      style="font-size:.68rem;color:var(--col-accent);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline"
-                      onclick="DPC.RAG.toggleSubDetail('${areaCode}-${key}-${subIdx}')"
-                      aria-expanded="false"
-                      aria-controls="sub-detail-${areaCode}-${key}-${subIdx}">
-                      View success criteria ▾
-                    </button>
-                    <div id="sub-detail-${areaCode}-${key}-${subIdx}" style="display:none;margin-top:8px">
-                      ${Object.entries(scale).map(([v,s]) => {
-                        const crit = dim.levels?.[v]?.subCriteria?.[subIdx] || '';
-                        return crit ? `<div style="margin-bottom:6px;padding:6px 8px;border-radius:var(--radius);background:${s.color}11;border-left:3px solid ${s.color}">
-                          <span style="font-size:.68rem;font-weight:700;color:${s.color}">${v} · ${s.label}</span>
-                          <div style="font-size:.72rem;color:var(--col-text-2);margin-top:2px;line-height:1.5">${crit}</div>
-                        </div>` : '';
-                      }).join('')}
-                    </div>
+                return `<tr>
+                  <!-- Sub-criterion label — name only, no expander -->
+                  <td style="padding:10px 12px;border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);vertical-align:top;background:var(--col-surface-2)">
+                    <div style="font-size:.78rem;font-weight:600;color:var(--col-text-2)">${subLabel}</div>
+                    ${subScore
+                      ? `<div style="margin-top:4px;font-size:.68rem;font-weight:700;color:${subColor}">${subScore} · ${scale[String(subScore)]?.label||''}</div>`
+                      : `<div style="margin-top:4px;font-size:.68rem;color:var(--col-muted)">Not rated</div>`}
                   </td>
 
-                  <!-- Score cells: one per level -->
+                  <!-- Criteria cells: each cell IS the success statement — click to score -->
                   ${Object.entries(scale).map(([v,s]) => {
                     const isSelected = subScore === parseInt(v);
-                    return `<td style="padding:6px;border-bottom:1px solid var(--col-border);border-right:1px solid var(--col-border);text-align:center;vertical-align:middle">
-                      <button type="button"
-                        onclick="DPC.RAG.setSubScore('${areaCode}','${key}',${subIdx},${v},'${containerId}')"
-                        aria-pressed="${isSelected}"
-                        aria-label="${subLabel}: ${v} — ${s.label}"
-                        title="${dim.levels?.[v]?.subCriteria?.[subIdx]||s.label}"
-                        style="
-                          width:48px;height:36px;border-radius:var(--radius);cursor:pointer;
-                          border:2px solid ${isSelected?s.color:'var(--col-border)'};
-                          background:${isSelected?s.color:'var(--col-surface)'};
-                          color:${isSelected?'#fff':'var(--col-text-2)'};
-                          font-size:.75rem;font-weight:${isSelected?'700':'400'};
-                          transition:all .12s ease;display:inline-flex;align-items:center;justify-content:center;
-                        "
-                        onmouseover="if(!this.getAttribute('aria-pressed')==='true')this.style.background='${s.color}22';this.style.borderColor='${s.color}'"
-                        onmouseout="this.setAttribute('data-hover','');if(this.getAttribute('aria-pressed')==='false'){this.style.background='var(--col-surface)';this.style.borderColor='var(--col-border)'}"
-                      >${isSelected ? '✓' : v}</button>
+                    const crit = dim.levels?.[v]?.subCriteria?.[subIdx] || '';
+                    return `<td
+                      onclick="DPC.RAG.setSubScore('${areaCode}','${key}',${subIdx},${v},'${containerId}')"
+                      role="button"
+                      tabindex="0"
+                      aria-pressed="${isSelected}"
+                      aria-label="${subLabel}: ${v} — ${s.label}"
+                      onkeydown="if(event.key==='Enter'||event.key===' '){DPC.RAG.setSubScore('${areaCode}','${key}',${subIdx},${v},'${containerId}')}"
+                      style="
+                        padding:10px 10px;
+                        border-bottom:1px solid var(--col-border);
+                        border-right:1px solid var(--col-border);
+                        vertical-align:top;
+                        cursor:pointer;
+                        transition:background .12s ease;
+                        background:${isSelected ? s.color+'20' : 'var(--col-surface)'};
+                        border-left:${isSelected ? '3px solid '+s.color : '1px solid var(--col-border)'};
+                        outline:${isSelected ? '2px solid '+s.color+'88' : 'none'};
+                        outline-offset:-2px;
+                        position:relative;
+                      "
+                      onmouseover="this.style.background='${s.color}14'"
+                      onmouseout="this.style.background='${isSelected?s.color+'20':'var(--col-surface)'}'"
+                    >
+                      ${isSelected ? `<div style="position:absolute;top:4px;right:6px;font-size:.65rem;font-weight:700;color:${s.color}" aria-hidden="true">✓</div>` : ''}
+                      <div style="font-size:.72rem;line-height:1.5;color:${isSelected ? 'var(--col-text)' : 'var(--col-text-2)'}">
+                        ${crit || '<span style="color:var(--col-muted);font-style:italic">—</span>'}
+                      </div>
                     </td>`;
                   }).join('')}
 
-                  <!-- Sub-score summary -->
-                  <td style="padding:6px 8px;border-bottom:1px solid var(--col-border);text-align:center;vertical-align:middle">
+                  <!-- Score summary -->
+                  <td style="padding:6px 8px;border-bottom:1px solid var(--col-border);text-align:center;vertical-align:middle;background:var(--col-surface-2)">
                     ${subScore
                       ? `<span style="font-size:.85rem;font-weight:700;font-family:var(--font-mono);color:${subColor}">${subScore}</span>`
                       : `<span style="font-size:.75rem;color:var(--col-muted)">—</span>`}
