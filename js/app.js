@@ -37,6 +37,7 @@ DPC.App = {
     DPC.App.renderLWB();
     DPC.App.renderIndividualActivities();
     DPC.App.renderMyCPD();
+    if (DPC.Reports) DPC.Reports.renderUI('reports-container');
 
     // Set up autosave
     DPC.App.startAutosave();
