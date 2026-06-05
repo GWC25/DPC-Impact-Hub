@@ -37,6 +37,7 @@ DPC.App = {
     DPC.App.renderLWB();
     DPC.App.renderIndividualActivities();
     DPC.App.renderMyCPD();
+    if (DPC.QC)      DPC.QC.renderUI('quick-capture-container');
     if (DPC.Reports) DPC.Reports.renderUI('reports-container');
 
     // Set up autosave
@@ -91,6 +92,7 @@ DPC.App = {
     // Update page title
     const titles = {
       dashboard: 'Dashboard',
+      'quick-capture': 'Quick Capture',
       'rag-summary': 'RAG Summary',
       areas: 'Areas',
       area: 'Area View',
@@ -115,7 +117,7 @@ DPC.App = {
       const tab  = parts[2] || 'overview';
       if (code) DPC.Areas.openArea(code, tab);
     } else {
-      const validSections = ['dashboard','rag-summary','areas','lwb','staff-dev','individual-activities','my-cpd','reports','settings'];
+      const validSections = ['dashboard','quick-capture','rag-summary','areas','lwb','staff-dev','individual-activities','my-cpd','reports','settings'];
       if (validSections.includes(hash)) DPC.App.navigateTo(hash);
     }
   },
